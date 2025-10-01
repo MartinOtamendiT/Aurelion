@@ -6,6 +6,7 @@ certifi==2025.8.3
 charset-normalizer==3.4.3
 click==8.3.0
 colorama==0.4.6
+et_xmlfile==2.0.0
 gitdb==4.0.12
 GitPython==3.1.45
 idna==3.10
@@ -15,6 +16,7 @@ jsonschema-specifications==2025.9.1
 MarkupSafe==3.0.3
 narwhals==2.6.0
 numpy==2.3.3
+openpyxl==3.1.5
 packaging==25.0
 pandas==2.3.3
 pillow==11.3.0
