@@ -16,8 +16,6 @@ options = {
     1: "Ver productos",
     2: "Ver ventas",
     3: "Ver clientes",
-    4: "Ver ordenes de compra",
-    5: "Ver estatus",
     0: "Salir",
 }
 
@@ -44,14 +42,6 @@ def main_menu():
     st.button(
         options[3], use_container_width=True, 
         on_click=navigate_to, args=(3,)
-    )
-    st.button(
-        options[4], use_container_width=True, 
-        on_click=navigate_to, args=(4,)
-    )
-    st.button(
-        options[5], use_container_width=True, 
-        on_click=navigate_to, args=(5,)
     )
     st.button(
         options[0], use_container_width=True, 
