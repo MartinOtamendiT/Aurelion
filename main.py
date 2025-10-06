@@ -29,6 +29,7 @@ def navigate_to(option):
 def main_menu():
     """Función que muestra el menú principal"""
     st.title("Tienda Aurelion")
+    st.markdown("Equipo sala 9: Andrea Gomez, Danna Rujel, Francisco Díaz, Martin Otamendi, Mauricio Carpio.")
     st.info("Seleccione una de las siguientes opciones:")
 
     st.button(
