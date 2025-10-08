@@ -191,7 +191,7 @@ pip install -r requirements.txt
 Asegúrate de que el entorno virtual esté activo y/o las librerías estén instaladas. Ejecuta el archivo principal de la aplicación (main.py):
 
 ```bash
-streamlit run app.py
+streamlit run programa.py
 ```
 
 #### 2. Acceso a la aplicación
