@@ -4,6 +4,7 @@ import numpy as np
 import sys
 import os
 from datetime import datetime
+import streamlit_mermaid as stmd
 
 # Inicialización del Estado de Sesión.
 # Se inicializa el estado para la opción seleccionada.
@@ -13,9 +14,10 @@ if 'selected_option' not in st.session_state:
 
 # Diccionario de opciones. Asocia cada opción con una clave utilizada por selected_option.
 options = {
-    1: "Ver productos",
+    1: "Ver documentación",
     2: "Ver ventas",
     3: "Ver clientes",
+    4: "Ver productos",
     0: "Salir",
 }
 
@@ -43,6 +45,10 @@ def main_menu():
     st.button(
         options[3], use_container_width=True, 
         on_click=navigate_to, args=(3,)
+    )
+    st.button(
+        options[4], use_container_width=True, 
+        on_click=navigate_to, args=(4,)
     )
     st.button(
         options[0], use_container_width=True, 
@@ -109,6 +115,122 @@ def see_clients():
         on_click=navigate_to, args=(None,)
     )
 
+def see_documentation():
+    """Función que muestra la documentación del README.md de manera interactiva"""
+    st.title("Documentación del Proyecto: Tienda Aurelion")
+
+    # Leer el contenido del README.md
+    with open("README.md", "r", encoding='utf-8') as file:
+        content = file.read()
+    
+    # Dividir el contenido en secciones (basado en los headers ##)
+    sections = content.split("\n## ")
+    
+    # Preparar las opciones para la navegación
+    main_title = sections[0].split("\n")[0].replace("# ", "")
+    section_titles = [s.split("\n")[0] for s in sections[1:]]
+
+    # Crear una barra lateral para navegación
+    with st.sidebar:
+        st.header("📚 Navegación")
+        
+        # Añadir búsqueda en la documentación
+        search_term = st.text_input("🔍 Buscar en la documentación", "")
+        
+        # Radio buttons para selección de sección con íconos
+        selected_section = st.radio(
+            "Secciones:",
+            section_titles,
+            format_func=lambda x: "📌 " + x if x == main_title else "📑 " + x
+        )
+
+        st.markdown("---")
+        # Mostrar estadísticas de la documentación
+        st.markdown("### 📊 Estadísticas")
+        st.markdown(f"- **Secciones totales:** {len(section_titles)}")
+        st.markdown(f"- **Caracteres totales:** {len(content)}")
+
+    # Contenedor principal para el contenido
+    main_container = st.container()
+    
+    with main_container:
+        # Si hay término de búsqueda, resaltarlo en el contenido
+        if search_term:
+            st.info(f"🔍 Mostrando resultados para: '{search_term}'")
+
+        # Mostrar el contenido de la sección seleccionada
+        if selected_section == main_title:
+            content_to_show = sections[0]
+        else:
+            content_to_show = "## " + next(section for section in sections[1:] 
+                                         if section.split("\n")[0] == selected_section)
+
+        # Si hay término de búsqueda, resaltar las coincidencias
+        if search_term and search_term.strip():
+            # Dividir el contenido en líneas para procesar
+            lines = content_to_show.split("\n")
+            filtered_lines = []
+            for line in lines:
+                if search_term.lower() in line.lower():
+                    # Resaltar el término de búsqueda
+                    highlighted = line.replace(
+                        search_term,
+                        f"**:red[{search_term}]**"
+                    )
+                    filtered_lines.append(highlighted)
+                elif not search_term.strip():  # Si no hay búsqueda, mostrar todo
+                    filtered_lines.append(line)
+            
+            if filtered_lines:
+                st.markdown("\n".join(filtered_lines))
+            else:
+                st.warning("No se encontraron coincidencias en esta sección.")
+        else:
+            # Mostrar el contenido normal
+            st.markdown(content_to_show)
+
+        # Agregar elementos interactivos según el contenido
+        if "```" in content_to_show:  # Si hay bloques de código
+            st.info("ℹ️ Esta sección contiene ejemplos de código que puedes copiar.")
+        
+        if "|" in content_to_show:  # Si hay tablas
+            st.info("ℹ️ Esta sección contiene tablas con información estructurada.")
+
+        if "###" in content_to_show:  # Si hay subsecciones
+            with st.expander("🔍 Ver subsecciones"):
+                subsections = [line for line in content_to_show.split("\n") 
+                             if line.startswith("###")]
+                for subsection in subsections:
+                    st.markdown(f"- {subsection.replace('### ', '')}")
+
+    st.markdown("---")
+    # Botones de navegación
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        if section_titles.index(selected_section) > 0:
+            prev_section = section_titles[section_titles.index(selected_section) - 1]
+            st.button(
+                f"⬅️ {prev_section}",
+                key="prev_section",
+                help=f"Ir a la sección anterior: {prev_section}"
+            )
+    
+    with col2:
+        st.button(
+            "⬅️ Volver al Menú Principal",
+            on_click=navigate_to, args=(None,)
+        )
+    
+    with col3:
+        if section_titles.index(selected_section) < len(section_titles) - 1:
+            next_section = section_titles[section_titles.index(selected_section) + 1]
+            st.button(
+                f"➡️ {next_section}",
+                key="next_section",
+                help=f"Ir a la siguiente sección: {next_section}"
+            )
+
 def see_sales():
     """Función que muestra la información de las ventas"""
     # Extracción de datos desde archivo excel
@@ -148,10 +270,12 @@ if __name__ == "__main__":
     if st.session_state.selected_option == None:
         main_menu()
     elif st.session_state.selected_option == 1:
-        see_products()
+        see_documentation()
     elif st.session_state.selected_option == 2:
         see_sales()
     elif st.session_state.selected_option == 3:
         see_clients()
+    elif st.session_state.selected_option == 4:
+        see_products()
     else:
         test_page()

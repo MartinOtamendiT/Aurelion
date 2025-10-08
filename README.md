@@ -105,6 +105,8 @@ Si usuario elige “Ver clientes”:
 **Diagrama de flujo:**
 !["Diagrama de flujo del programa"](Aurelion_diagrama_flujo.png)
 
+[Presione aquí](https://github.com/MartinOtamendiT/Aurelion/blob/main/Aurelion_diagrama_flujo.png) para ver el diagrama, en caso de tener problemas con la visualización.
+
 ## Sugerencias y mejoras aplicadas con Copilot
 
 * Corrección de información de la base de datos de productos.xlsx, de la variable de categorias original, agregando una columna de categoria_corregida en un nuevo archivo productos_corregidos.xlsx. En esta nueva BD están los productos clasificados correctamente como Alimentos o Limpieza.
