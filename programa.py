@@ -5,6 +5,7 @@ import sys
 import os
 from datetime import datetime
 import streamlit_mermaid as stmd
+import textwrap
 
 # Inicialización del Estado de Sesión.
 # Se inicializa el estado para la opción seleccionada.
@@ -31,7 +32,7 @@ def navigate_to(option):
 def main_menu():
     """Función que muestra el menú principal"""
     st.title("Tienda Aurelion")
-    st.markdown("Equipo sala 9: Andrea Gomez, Danna Rujel, Francisco Díaz, Martin Otamendi, Mauricio Carpio.")
+    st.markdown("Equipo sala 9: Andrea Emilia Gómez Gavilanes, Gester Danna Potosí Rujel, Francisco Alejandro Díaz Pezoa, Martin Otamendi Torres, Mauricio Andre Carpio Rosas, Kelly Lizeth Alomoto Catota.")
     st.info("Seleccione una de las siguientes opciones:")
 
     st.button(
@@ -66,10 +67,11 @@ def test_page():
     st.markdown("---")
 
     # Botón para regresar al menú principal
-    st.button(
-        "⬅️ Volver al Menú Principal",
-        on_click=navigate_to, args=(None,)
-    )
+    #st.button(
+    #    "⬅️ Volver al Menú Principal",
+    #    on_click=navigate_to, args=(None,)
+    #)
+    
 
 def see_products():
     """Función que muestra los productos disponibles en la tienda"""
@@ -116,11 +118,11 @@ def see_clients():
     )
 
 def see_documentation():
-    """Función que muestra la documentación del README.md de manera interactiva"""
+    """Función que muestra la documentación del documentación.md de manera interactiva"""
     st.title("Documentación del Proyecto: Tienda Aurelion")
 
-    # Leer el contenido del README.md
-    with open("README.md", "r", encoding='utf-8') as file:
+    # Leer el contenido del documentación.md
+    with open("documentación.md", "r", encoding='utf-8') as file:
         content = file.read()
     
     # Dividir el contenido en secciones (basado en los headers ##)
@@ -203,6 +205,76 @@ def see_documentation():
                 for subsection in subsections:
                     st.markdown(f"- {subsection.replace('### ', '')}")
 
+        # Mostrar el diagrama solo si la sección seleccionada es la correcta
+        if "Información, pasos, diagrama de flujo y pseudocódigo del programa" in selected_section.strip():
+            diagram ="""
+                flowchart TD
+                    A([Inicio])
+                    A --> B["Imprimir:<br>1.- Menú:<br>1.- Ver documentación<br>2.- Ver ventas<br>3.- Ver clientes<br>4.- Ver productos<br>0.- Salir"]
+                    B --> C["Leer: opcion_usuario"]
+                    C --> D{opcion_usuario}
+
+                    %% --- Ver productos ---
+                    D -->|1| E["Imprimir: 'Elegiste ver productos'"]
+                    E --> F["Extraer datos de 'productos_corregidos.xlsx'"]
+                    F --> G["Imprimir: 'Selecciona categoría:' + lista_categorias"]
+                    G --> H["Leer: categoria_seleccionada"]
+
+                    H --> I{categoria_seleccionada}
+                    I -->|Todas las categorías| J["Filtrar tabla_productos por 'todas las categorías'"]
+                    I -->|Alimentos| K["Filtrar tabla_productos por 'Alimentos'"]
+                    I -->|Limpieza| L["Filtrar tabla_productos por 'Limpieza'"]
+
+                    J --> M["Imprimir: tabla_productos[id_producto, nombre_producto, precio_unitario, categoria_corregida]"]
+                    K --> M
+                    L --> M
+                    M --> N["Imprimir: 'Regresando al menú principal...'"]
+                    N --> B
+
+                    %% --- Ver ventas ---
+                    D -->|2| O["Imprimir: 'Elegiste ver ventas'"]
+                    O --> P["Extraer datos de 'ventas.xlsx'"]
+                    P --> Q["Extraer datos de 'detalle_ventas.xlsx'"]
+                    Q --> R["Extraer datos de 'clientes.xlsx'"]
+                    R --> S["Unir tablas de ventas, detalle_ventas y clientes"]
+                    S --> T["Imprimir: 'Selecciona ciudad de origen de los clientes' + lista_ciudades"]
+                    T --> U["Filtrar tabla_ventas_unida por ciudad"]
+                    U --> V["Imprimir: 'Selecciona el medio de pago' + lista_medios_pago"]
+                    V --> W["Filtrar tabla_ventas_unida por medio_pago"]
+                    W --> X["Imprimir: 'Ingresa ID de la venta:'"]
+                    X --> Y["Leer: id_venta_ingresado"]
+                    Y --> Z["Filtrar tabla_ventas_unida por id_venta_ingresado"]
+                    Z --> ZA["Imprimir: tabla con datos de venta, cliente y producto"]
+                    ZA --> ZB["Imprimir: 'Regresando al menú principal...'"]
+                    ZB --> B
+
+                    %% --- Ver clientes ---
+                    D -->|3| AA["Imprimir: 'Elegiste ver clientes'"]
+                    AA --> AB["Extraer datos de 'clientes.xlsx'"]
+                    AB --> AC["Calcular antigüedad de los clientes"]
+                    AC --> AD["Imprimir: 'Selecciona ciudad de origen' + lista_ciudades"]
+                    AD --> AE["Filtrar tabla_clientes por ciudad"]
+                    AE --> AF["Imprimir: tabla_clientes con id_cliente, nombre_cliente, email, fecha_alta, antigüedad"]
+                    AF --> AG["Imprimir: 'Regresando al menú principal...'"]
+                    AG --> B
+
+                    %% --- Ver documentación ---
+                    D -->|4| BA["Imprimir: 'Elegiste ver documentación'"]
+                    BA --> BB["Cargar contenido del archivo 'documentación.md'"]
+                    BB --> BC["Extraer títulos de secciones"]
+                    BC --> BD["Imprimir: 'Selecciona una sección:' + lista_secciones"]
+                    BD --> BE["Leer: seccion_seleccionada"]
+                    BE --> BF["Mostrar contenido de la sección seleccionada"]
+                    BF --> BG["Si hay subsecciones, mostrar lista de subsecciones"]
+                    BG --> BH["Si es la sección correcta, mostrar diagrama de flujo"]
+                    BH --> BI["Imprimir: 'Regresando al menú principal...'"]
+                    BI --> B
+
+                    %% --- Salir ---
+                    D -->|0| HZ([Fin])
+            """
+            stmd.st_mermaid(diagram)
+
     st.markdown("---")
     # Botones de navegación
     col1, col2, col3 = st.columns(3)
@@ -262,8 +334,6 @@ def see_sales():
         "⬅️ Volver al Menú Principal",
         on_click=navigate_to, args=(None,)
     )
-
-
 
 # Ejecutar la aplicación
 if __name__ == "__main__":

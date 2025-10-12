@@ -103,9 +103,8 @@ Si usuario elige “Ver clientes”:
 ```
 
 **Diagrama de flujo:**
-!["Diagrama de flujo del programa"](Aurelion_diagrama_flujo.png)
 
-[Presione aquí](https://github.com/MartinOtamendiT/Aurelion/blob/main/Aurelion_diagrama_flujo.png) para ver el diagrama, en caso de tener problemas con la visualización.
+[Click aquí para ver la imagen del diagrama de flujo](https://github.com/MartinOtamendiT/Aurelion/blob/main/Aurelion_diagrama_flujo.png)
 
 ## Sugerencias y mejoras aplicadas con Copilot
 
@@ -119,7 +118,9 @@ Si usuario elige “Ver clientes”:
 
 * Mejorar la legibilidad del pseudocódigo y la navegación con st.session_state.
 
-* Mejoras para la documentación del archivo README.md
+* Mejoras para la documentación del archivo documentación.md
+
+* Habilitar/modificar botones de navegación de la sección de "Ver documentación".
 
 Nota: Algunas sugerencias fueron realizadas por el asistente de autocompletado de código de Copilot.
 
@@ -145,7 +146,7 @@ Sigue estos pasos para preparar tu entorno de desarrollo:
 Abre tu terminal y utiliza el siguiente comando para clonar el repositorio si estás utilizando Git:
 
 ```bash
-git clone <URL_DEL_REPOSITORIO>
+git clone https://github.com/MartinOtamendiT/Aurelion.git
 ```
 
 De lo contrario, simplemente descarga los archivos del proyecto y abre tu terminal para moverte al mismo directorio con el siguiente comando:
@@ -203,8 +204,9 @@ En caso de que no se abra automáticamente, puedes acceder a ella manualmente a 
 **Nota**: El puerto predeterminado de Streamlit es 8501. Si ese puerto está ocupado, Streamlit te informará de un puerto alternativo que esté utilizando.
 
 #### 3. Detener la Ejecución
+
 Para detener la aplicación, simplemente vuelve a la terminal donde se está ejecutando el comando streamlit run y presiona:
- 
+
 * Windows/Linux:
 
     ```bash
