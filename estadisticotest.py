@@ -1,70 +1,105 @@
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
+import pandas as pd 
+import seaborn as sns 
+import matplotlib.pyplot as plt 
+import os 
+# --- 0. Configuración y Carga de Datos --- 
+# Nombre del archivo de entrada 
+file_name = './data/df_unified_clean.csv' 
+if not os.path.exists(file_name): 
+    print(f"Error: No se encontró el archivo '{file_name}'.") 
+    print("Asegúrate de que el archivo CSV esté en la misma carpeta que este script.") 
+else: 
+    print(f"Cargando datos desde '{file_name}'...") 
+    df = pd.read_csv(file_name) 
+    # Conversión crucial de tipos de datos 
+    try: 
+        df['fecha_venta'] = pd.to_datetime(df['fecha_venta']) 
+        df['fecha_alta_cliente'] = pd.to_datetime(df['fecha_alta_cliente']) 
+        print("Columnas de fecha convertidas a datetime.") 
+    except Exception as e: 
+        print(f"Advertencia: No se pudieron convertir las columnas de fecha. {e}") 
+print("\n--- Iniciando generación de gráficos ---") 
+# --- 1. Gráfico Numérico vs. Numérico (Heatmap de Correlación) --- 
+print("Generando Gráfico 1: Mapa de Calor de Correlación...") 
+numeric_cols = ['cantidad', 'precio_unitario', 'importe'] 
+corr_matrix = df[numeric_cols].corr() 
+plt.figure(figsize=(8, 6)) 
+sns.heatmap(corr_matrix, annot=True, fmt='.2f', cmap='viridis', cbar=True, 
+annot_kws={"size": 12}) 
+plt.title('Mapa de Calor de Correlación\n(Numérico vs. Numérico)', fontsize=16) 
+plt.xticks(rotation=45, ha='right', fontsize=10) 
+plt.yticks(rotation=0, fontsize=10) 
+plt.tight_layout() 
+plt.savefig('correlacion_numerica.png') 
+plt.clf() # Limpiar la figura actual 
 
-# 1️⃣ Leer los archivos Excel
-ventas_2024 = pd.read_excel("./data/ventas.xlsx")
-ventas_2025 = ventas_2024.copy()
-num_filas = len(ventas_2024['fecha'])
-# 3. Definir el rango de fechas para 2025
-fecha_inicio = pd.to_datetime('2025-01-01')
-fecha_fin = pd.to_datetime('2025-12-31')
-rango_dias = (fecha_fin - fecha_inicio).days
-
-# 4. Generar fechas aleatorias
-# Creamos una serie de días aleatorios dentro del rango 2025
-dias_aleatorios = np.random.randint(0, rango_dias + 1, size=num_filas)
-
-# Sumamos los días aleatorios a la fecha de inicio para obtener las fechas finales
-fechas_aleatorias_2025 = fecha_inicio + pd.to_timedelta(dias_aleatorios, unit='D')
-
-# 5. Reemplazar la columna 'Fecha' con las nuevas fechas aleatorias de 2025
-ventas_2025['fecha'] = fechas_aleatorias_2025
-
-# 6. Mostrar el resultado (las primeras 5 filas)
-print("\nDataFrame con fechas aleatorias de 2025 reemplazadas:")
-print(ventas_2025.head())
-
-# OPCIONAL: Guardar el resultado en un nuevo archivo Excel
-# df.to_excel("ventas_2025_aleatorias.xlsx", index=False)
-
-# 2️⃣ Convertir la columna 'fecha' a tipo datetime
-ventas_2024["fecha"] = pd.to_datetime(ventas_2024["fecha"])
-ventas_2025["fecha"] = pd.to_datetime(ventas_2025["fecha"])
-
-# 3️⃣ Extraer el mes de la fecha
-ventas_2024["mes"] = ventas_2024["fecha"].dt.month
-ventas_2025["mes"] = ventas_2025["fecha"].dt.month
-
-# 4️⃣ Agrupar por mes y contar ventas (o sumar montos si tienes una columna de totales)
-ventas_2024_mes = ventas_2024.groupby("mes").size()
-ventas_2025_mes = ventas_2025.groupby("mes").size()
-
-# 5️⃣ Alinear ambos años para asegurar que todos los meses estén presentes
-meses = range(1, 13)
-ventas_2024_mes = ventas_2024_mes.reindex(meses, fill_value=0)
-ventas_2025_mes = ventas_2025_mes.reindex(meses, fill_value=0)
-
-# 6️⃣ Preparar datos para el gráfico
-categorias = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 
-              'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
-ventas_2024 = ventas_2024_mes.values
-ventas_2025 = ventas_2025_mes.values
-
-x = np.arange(len(categorias))  # posiciones para cada categoría
-width = 0.35  # ancho de cada barra
-
-# 7️⃣ Crear el gráfico
-plt.figure(figsize=(10, 6))
-plt.bar(x - width/2, ventas_2024, width=width, label='2024', color='cornflowerblue')
-plt.bar(x + width/2, ventas_2025, width=width, label='2025', color='salmon')
-
-# 8️⃣ Personalizar
-plt.title("Comparación de Ventas 2024 vs 2025")
-plt.xlabel("Mes")
-plt.ylabel("Número de Ventas")
-plt.xticks(x, categorias)
-plt.legend()
-plt.grid(axis='y', linestyle='--', alpha=0.7)
-plt.tight_layout()
-plt.show()
+# --- 2. Gráfico Categórico vs. Numérico (Barras: Ventas por Categoría) --- 
+print("Generando Gráfico 2: Ingresos Totales por Categoría...") 
+ventas_por_categoria = df.groupby('categoria')['importe'].sum().sort_values(ascending=False) 
+plt.figure(figsize=(10, 7)) 
+colors_cat = sns.color_palette('viridis', len(ventas_por_categoria)) 
+ventas_por_categoria.plot(kind='bar', color=colors_cat) 
+plt.title('Ingresos Totales por Categoría\n(Categórico vs. Numérico)', fontsize=16) 
+plt.ylabel('Ingresos Totales (Importe)', fontsize=12) 
+plt.xlabel('Categoría', fontsize=12) 
+plt.xticks(rotation=45, ha='right', fontsize=10) 
+plt.grid(axis='y', linestyle='--', alpha=0.7) 
+plt.tight_layout() 
+plt.savefig('ventas_por_categoria.png') 
+plt.clf() 
+# --- 3. Gráfico Categórico vs. Numérico (Barras: Ventas por Ciudad) --- 
+print("Generando Gráfico 3: Ingresos Totales por Ciudad...") 
+ventas_por_ciudad = df.groupby('ciudad')['importe'].sum().sort_values(ascending=False) 
+plt.figure(figsize=(10, 7)) 
+colors_city = sns.color_palette('plasma', len(ventas_por_ciudad)) 
+ventas_por_ciudad.plot(kind='bar', color=colors_city) 
+plt.title('Ingresos Totales por Ciudad\n(Categórico vs. Numérico)', fontsize=16) 
+plt.ylabel('Ingresos Totales (Importe)', fontsize=12) 
+plt.xlabel('Ciudad', fontsize=12) 
+plt.xticks(rotation=45, ha='right', fontsize=10) 
+plt.grid(axis='y', linestyle='--', alpha=0.7) 
+plt.tight_layout() 
+plt.savefig('ventas_por_ciudad.png') 
+plt.clf() 
+# --- 4. Gráfico Categórico vs. Numérico (Boxplot: Distribución de Precios) --- 
+print("Generando Gráfico 4: Distribución de Precios por Categoría...") 
+plt.figure(figsize=(10, 7)) 
+sns.boxplot(x='categoria', y='precio_unitario', data=df, palette='viridis') 
+plt.title('Distribución de Precios Unitarios por Categoría', fontsize=16) 
+plt.ylabel('Precio Unitario', fontsize=12) 
+plt.xlabel('Categoría', fontsize=12) 
+plt.xticks(rotation=45, ha='right', fontsize=10) 
+plt.grid(axis='y', linestyle='--', alpha=0.7) 
+plt.tight_layout() 
+plt.savefig('distribucion_precios_categoria.png') 
+plt.clf() 
+# --- 5. Gráfico Categórico vs. Categórico (Heatmap: Categoría vs. Medio de Pago) --- 
+print("Generando Gráfico 5: Relación entre Categoría y Medio de Pago...") 
+contingency_table = pd.crosstab(df['categoria'], df['medio_pago']) 
+plt.figure(figsize=(10, 7)) 
+sns.heatmap(contingency_table, annot=True, fmt='d', cmap='YlGnBu', 
+cbar=True, annot_kws={"size": 12}) 
+plt.title('Frecuencia de Medio de Pago por Categoría\n(Categórico vs. Categórico)', fontsize=16) 
+plt.ylabel('Categoría', fontsize=12) 
+plt.xlabel('Medio de Pago', fontsize=12) 
+plt.yticks(rotation=0, fontsize=10) 
+plt.tight_layout() 
+plt.savefig('categoria_vs_mediopago_heatmap.png') 
+plt.clf() 
+# --- 6. Gráfico Serie Temporal (Líneas: Evolución de Ventas) --- 
+print("Generando Gráfico 6: Evolución de Ingresos Totales (Series Temporales)...") 
+# Asegurarse de que fecha_venta es el índice para remuestrear 
+df_time = df.set_index('fecha_venta') 
+# Remuestrear por mes ('M') y sumar los importes 
+ventas_mensuales = df_time['importe'].resample('M').sum() 
+plt.figure(figsize=(12, 7)) 
+ventas_mensuales.plot(kind='line', marker='o', linestyle='-', color='dodgerblue') 
+plt.title('Ingresos Totales por Mes\n(Serie Temporal)', fontsize=16) 
+plt.ylabel('Ingresos Totales (Importe)', fontsize=12) 
+plt.xlabel('Mes', fontsize=12) 
+plt.grid(True, linestyle='--', alpha=0.7) 
+plt.tight_layout() 
+plt.savefig('evolucion_ventas_mensuales.png') 
+plt.clf() 
+print("\n--- ¡Análisis completado! ---") 
+print(f"Se generaron 6 archivos .png en la carpeta: {os.getcwd()}")
