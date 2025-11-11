@@ -1,0 +1,344 @@
+id_venta,fecha,id_cliente,nombre_cliente,email,medio_pago,id_producto,nombre_producto,cantidad,precio_unitario,importe,categoria,categoria_corregida,ciudad,fecha_alta
+1,2024-06-19 00:00:00,62,Guadalupe Romero,guadalupe.romero@mail.com,tarjeta,90,Toallas Húmedas x50,1,2902,2902,Limpieza,Limpieza,Carlos Paz,2023-03-03 00:00:00
+2,2024-03-17 00:00:00,49,Olivia Gomez,olivia.gomez@mail.com,qr,82,Aceitunas Negras 200g,5,2394,11970,Limpieza,Alimentos,Rio Cuarto,2023-02-18 00:00:00
+2,2024-03-17 00:00:00,49,Olivia Gomez,olivia.gomez@mail.com,qr,39,Helado Vainilla 1L,5,469,2345,Alimentos,Alimentos,Rio Cuarto,2023-02-18 00:00:00
+2,2024-03-17 00:00:00,49,Olivia Gomez,olivia.gomez@mail.com,qr,70,Fernet 750ml,2,4061,8122,Limpieza,Alimentos,Rio Cuarto,2023-02-18 00:00:00
+2,2024-03-17 00:00:00,49,Olivia Gomez,olivia.gomez@mail.com,qr,22,Medialunas de Manteca,1,2069,2069,Limpieza,Alimentos,Rio Cuarto,2023-02-18 00:00:00
+2,2024-03-17 00:00:00,49,Olivia Gomez,olivia.gomez@mail.com,qr,79,Hamburguesas Congeladas x4,4,2420,9680,Alimentos,Alimentos,Rio Cuarto,2023-02-18 00:00:00
+3,2024-01-13 00:00:00,20,Tomas Acosta,tomas.acosta@mail.com,tarjeta,9,Yerba Mate Suave 1kg,2,3878,7756,Alimentos,Alimentos,Rio Cuarto,2023-01-20 00:00:00
+3,2024-01-13 00:00:00,20,Tomas Acosta,tomas.acosta@mail.com,tarjeta,2,Pepsi 1.5L,2,4973,9946,Limpieza,Alimentos,Rio Cuarto,2023-01-20 00:00:00
+3,2024-01-13 00:00:00,20,Tomas Acosta,tomas.acosta@mail.com,tarjeta,85,Jugo en Polvo Naranja,1,1856,1856,Alimentos,Alimentos,Rio Cuarto,2023-01-20 00:00:00
+4,2024-02-27 00:00:00,36,Martina Molina,martina.molina@mail.com,transferencia,4,Fanta Naranja 1.5L,2,2033,4066,Limpieza,Alimentos,Mendiolaza,2023-02-05 00:00:00
+4,2024-02-27 00:00:00,36,Martina Molina,martina.molina@mail.com,transferencia,23,Bizcochos Salados,5,2380,11900,Alimentos,Alimentos,Mendiolaza,2023-02-05 00:00:00
+5,2024-06-11 00:00:00,56,Bruno Diaz,bruno.diaz@mail.com,tarjeta,86,Jugo en Polvo Limón,4,4090,16360,Limpieza,Alimentos,Rio Cuarto,2023-02-25 00:00:00
+6,2024-05-05 00:00:00,91,Uma Sanchez,uma.sanchez@mail.com,transferencia,25,Galletitas Vainilla,2,4015,8030,Alimentos,Alimentos,Mendiolaza,2023-04-01 00:00:00
+6,2024-05-05 00:00:00,91,Uma Sanchez,uma.sanchez@mail.com,transferencia,31,Mix de Frutos Secos 200g,3,3409,10227,Alimentos,Alimentos,Mendiolaza,2023-04-01 00:00:00
+6,2024-05-05 00:00:00,91,Uma Sanchez,uma.sanchez@mail.com,transferencia,83,Queso Untable 190g,1,1830,1830,Alimentos,Alimentos,Mendiolaza,2023-04-01 00:00:00
+6,2024-05-05 00:00:00,91,Uma Sanchez,uma.sanchez@mail.com,transferencia,59,Chicle Menta,4,3612,14448,Alimentos,Alimentos,Mendiolaza,2023-04-01 00:00:00
+7,2024-05-06 00:00:00,92,Mariana Rodriguez,mariana.rodriguez@mail.com,efectivo,63,Granola 250g,3,4337,13011,Alimentos,Alimentos,Alta Gracia,2023-04-02 00:00:00
+8,2024-01-06 00:00:00,66,Tomas Herrera,tomas.herrera@mail.com,transferencia,53,Lavandina 1L,5,1664,8320,Alimentos,Limpieza,Villa Maria,2023-03-07 00:00:00
+8,2024-01-06 00:00:00,66,Tomas Herrera,tomas.herrera@mail.com,transferencia,18,Queso Rallado 150g,4,3444,13776,Limpieza,Alimentos,Villa Maria,2023-03-07 00:00:00
+8,2024-01-06 00:00:00,66,Tomas Herrera,tomas.herrera@mail.com,transferencia,68,Vino Blanco 750ml,5,2684,13420,Limpieza,Alimentos,Villa Maria,2023-03-07 00:00:00
+9,2024-01-20 00:00:00,86,Diego Torres,diego.torres@mail.com,efectivo,65,Cerveza Rubia 1L,4,2423,9692,Alimentos,Alimentos,Cordoba,2023-03-27 00:00:00
+10,2024-05-28 00:00:00,52,Diego Diaz,diego.diaz@mail.com,qr,36,Dulce de Leche 400g,2,2559,5118,Limpieza,Alimentos,Rio Cuarto,2023-02-21 00:00:00
+10,2024-05-28 00:00:00,52,Diego Diaz,diego.diaz@mail.com,qr,100,Trapo de Piso,4,4854,19416,Limpieza,Limpieza,Rio Cuarto,2023-02-21 00:00:00
+10,2024-05-28 00:00:00,52,Diego Diaz,diego.diaz@mail.com,qr,37,Mermelada de Durazno 400g,3,3196,9588,Alimentos,Alimentos,Rio Cuarto,2023-02-21 00:00:00
+10,2024-05-28 00:00:00,52,Diego Diaz,diego.diaz@mail.com,qr,62,Stevia 100 sobres,1,3848,3848,Limpieza,Alimentos,Rio Cuarto,2023-02-21 00:00:00
+11,2024-04-10 00:00:00,20,Tomas Acosta,tomas.acosta@mail.com,qr,13,Té Verde 20 saquitos,1,2383,2383,Alimentos,Alimentos,Rio Cuarto,2023-01-20 00:00:00
+11,2024-04-10 00:00:00,20,Tomas Acosta,tomas.acosta@mail.com,qr,65,Cerveza Rubia 1L,2,2423,4846,Alimentos,Alimentos,Rio Cuarto,2023-01-20 00:00:00
+11,2024-04-10 00:00:00,20,Tomas Acosta,tomas.acosta@mail.com,qr,28,Papas Fritas Clásicas 100g,1,936,936,Limpieza,Alimentos,Rio Cuarto,2023-01-20 00:00:00
+12,2024-06-28 00:00:00,96,Rocio Gonzalez,rocio.gonzalez@mail.com,efectivo,72,Ron 700ml,2,3876,7752,Limpieza,Alimentos,Cordoba,2023-04-06 00:00:00
+12,2024-06-28 00:00:00,96,Rocio Gonzalez,rocio.gonzalez@mail.com,efectivo,50,Azúcar 1kg,2,727,1454,Limpieza,Alimentos,Cordoba,2023-04-06 00:00:00
+12,2024-06-28 00:00:00,96,Rocio Gonzalez,rocio.gonzalez@mail.com,efectivo,56,Papel Higiénico x4,3,2532,7596,Limpieza,Limpieza,Cordoba,2023-04-06 00:00:00
+12,2024-06-28 00:00:00,96,Rocio Gonzalez,rocio.gonzalez@mail.com,efectivo,87,Sopa Instantánea Pollo,3,1679,5037,Alimentos,Alimentos,Cordoba,2023-04-06 00:00:00
+12,2024-06-28 00:00:00,96,Rocio Gonzalez,rocio.gonzalez@mail.com,efectivo,38,Mermelada de Frutilla 400g,4,1584,6336,Limpieza,Alimentos,Cordoba,2023-04-06 00:00:00
+13,2024-01-24 00:00:00,6,Uma Medina,uma.medina@mail.com,tarjeta,87,Sopa Instantánea Pollo,1,1679,1679,Alimentos,Alimentos,Villa Maria,2023-01-06 00:00:00
+13,2024-01-24 00:00:00,6,Uma Medina,uma.medina@mail.com,tarjeta,81,Aceitunas Verdes 200g,3,2520,7560,Alimentos,Alimentos,Villa Maria,2023-01-06 00:00:00
+13,2024-01-24 00:00:00,6,Uma Medina,uma.medina@mail.com,tarjeta,13,Té Verde 20 saquitos,1,2383,2383,Alimentos,Alimentos,Villa Maria,2023-01-06 00:00:00
+14,2024-04-18 00:00:00,67,Ivana Romero,ivana.romero@mail.com,qr,36,Dulce de Leche 400g,4,2559,10236,Limpieza,Alimentos,Alta Gracia,2023-03-08 00:00:00
+14,2024-04-18 00:00:00,67,Ivana Romero,ivana.romero@mail.com,qr,72,Ron 700ml,5,3876,19380,Limpieza,Alimentos,Alta Gracia,2023-03-08 00:00:00
+14,2024-04-18 00:00:00,67,Ivana Romero,ivana.romero@mail.com,qr,38,Mermelada de Frutilla 400g,3,1584,4752,Limpieza,Alimentos,Alta Gracia,2023-03-08 00:00:00
+14,2024-04-18 00:00:00,67,Ivana Romero,ivana.romero@mail.com,qr,97,Limpiavidrios 500ml,1,872,872,Alimentos,Limpieza,Alta Gracia,2023-03-08 00:00:00
+15,2024-06-27 00:00:00,56,Bruno Diaz,bruno.diaz@mail.com,transferencia,37,Mermelada de Durazno 400g,3,3196,9588,Alimentos,Alimentos,Rio Cuarto,2023-02-25 00:00:00
+16,2024-04-12 00:00:00,2,Nicolas Rojas,nicolas.rojas@mail.com,efectivo,35,Barrita de Cereal 30g,5,4430,22150,Alimentos,Alimentos,Carlos Paz,2023-01-02 00:00:00
+17,2024-02-17 00:00:00,88,Felipe Castro,felipe.castro@mail.com,efectivo,81,Aceitunas Verdes 200g,5,2520,12600,Alimentos,Alimentos,Villa Maria,2023-03-29 00:00:00
+17,2024-02-17 00:00:00,88,Felipe Castro,felipe.castro@mail.com,efectivo,46,Lentejas Secas 500g,5,3036,15180,Limpieza,Alimentos,Villa Maria,2023-03-29 00:00:00
+17,2024-02-17 00:00:00,88,Felipe Castro,felipe.castro@mail.com,efectivo,74,Whisky 750ml,3,2953,8859,Limpieza,Alimentos,Villa Maria,2023-03-29 00:00:00
+18,2024-06-11 00:00:00,81,Camila Ruiz,camila.ruiz@mail.com,qr,33,Chocolate con Leche 100g,2,1255,2510,Alimentos,Alimentos,Carlos Paz,2023-03-22 00:00:00
+18,2024-06-11 00:00:00,81,Camila Ruiz,camila.ruiz@mail.com,qr,4,Fanta Naranja 1.5L,5,2033,10165,Limpieza,Alimentos,Carlos Paz,2023-03-22 00:00:00
+18,2024-06-11 00:00:00,81,Camila Ruiz,camila.ruiz@mail.com,qr,24,Galletitas Chocolate,2,1305,2610,Limpieza,Alimentos,Carlos Paz,2023-03-22 00:00:00
+18,2024-06-11 00:00:00,81,Camila Ruiz,camila.ruiz@mail.com,qr,15,Leche Descremada 1L,3,2538,7614,Alimentos,Alimentos,Carlos Paz,2023-03-22 00:00:00
+18,2024-06-11 00:00:00,81,Camila Ruiz,camila.ruiz@mail.com,qr,22,Medialunas de Manteca,5,2069,10345,Limpieza,Alimentos,Carlos Paz,2023-03-22 00:00:00
+19,2024-06-11 00:00:00,80,Gael Ruiz,gael.ruiz@mail.com,efectivo,38,Mermelada de Frutilla 400g,2,1584,3168,Limpieza,Alimentos,Mendiolaza,2023-03-21 00:00:00
+19,2024-06-11 00:00:00,80,Gael Ruiz,gael.ruiz@mail.com,efectivo,98,Desengrasante 500ml,3,2843,8529,Limpieza,Limpieza,Mendiolaza,2023-03-21 00:00:00
+19,2024-06-11 00:00:00,80,Gael Ruiz,gael.ruiz@mail.com,efectivo,63,Granola 250g,3,4337,13011,Alimentos,Alimentos,Mendiolaza,2023-03-21 00:00:00
+20,2024-01-13 00:00:00,75,Santiago Castro,santiago.castro@mail.com,tarjeta,32,Chocolate Amargo 100g,3,2234,6702,Limpieza,Alimentos,Rio Cuarto,2023-03-16 00:00:00
+21,2024-06-19 00:00:00,10,Karina Acosta,karina.acosta@mail.com,transferencia,76,Pizza Congelada Muzzarella,5,4286,21430,Limpieza,Alimentos,Cordoba,2023-01-10 00:00:00
+21,2024-06-19 00:00:00,10,Karina Acosta,karina.acosta@mail.com,transferencia,35,Barrita de Cereal 30g,1,4430,4430,Alimentos,Alimentos,Cordoba,2023-01-10 00:00:00
+22,2024-05-08 00:00:00,64,Julian Alvarez,julian.alvarez@mail.com,transferencia,9,Yerba Mate Suave 1kg,2,3878,7756,Alimentos,Alimentos,Villa Maria,2023-03-05 00:00:00
+22,2024-05-08 00:00:00,64,Julian Alvarez,julian.alvarez@mail.com,transferencia,28,Papas Fritas Clásicas 100g,3,936,2808,Limpieza,Alimentos,Villa Maria,2023-03-05 00:00:00
+22,2024-05-08 00:00:00,64,Julian Alvarez,julian.alvarez@mail.com,transferencia,24,Galletitas Chocolate,4,1305,5220,Limpieza,Alimentos,Villa Maria,2023-03-05 00:00:00
+23,2024-05-16 00:00:00,78,Emilia Alvarez,emilia.alvarez@mail.com,transferencia,64,Avena Instantánea 250g,4,3953,15812,Limpieza,Alimentos,Villa Maria,2023-03-19 00:00:00
+23,2024-05-16 00:00:00,78,Emilia Alvarez,emilia.alvarez@mail.com,transferencia,83,Queso Untable 190g,4,1830,7320,Alimentos,Alimentos,Villa Maria,2023-03-19 00:00:00
+24,2024-06-14 00:00:00,55,Olivia Ruiz,olivia.ruiz@mail.com,tarjeta,91,Desodorante Aerosol,2,4690,9380,Alimentos,Limpieza,Mendiolaza,2023-02-24 00:00:00
+24,2024-06-14 00:00:00,55,Olivia Ruiz,olivia.ruiz@mail.com,tarjeta,40,Helado Chocolate 1L,5,1215,6075,Limpieza,Alimentos,Mendiolaza,2023-02-24 00:00:00
+25,2024-04-30 00:00:00,13,Ivana Sanchez,ivana.sanchez@mail.com,transferencia,55,Shampoo 400ml,1,1407,1407,Alimentos,Limpieza,Carlos Paz,2023-01-13 00:00:00
+25,2024-04-30 00:00:00,13,Ivana Sanchez,ivana.sanchez@mail.com,transferencia,95,Mascarilla Capilar,5,1581,7905,Alimentos,Limpieza,Carlos Paz,2023-01-13 00:00:00
+25,2024-04-30 00:00:00,13,Ivana Sanchez,ivana.sanchez@mail.com,transferencia,72,Ron 700ml,1,3876,3876,Limpieza,Alimentos,Carlos Paz,2023-01-13 00:00:00
+26,2024-01-23 00:00:00,49,Olivia Gomez,olivia.gomez@mail.com,efectivo,79,Hamburguesas Congeladas x4,2,2420,4840,Alimentos,Alimentos,Rio Cuarto,2023-02-18 00:00:00
+26,2024-01-23 00:00:00,49,Olivia Gomez,olivia.gomez@mail.com,efectivo,86,Jugo en Polvo Limón,1,4090,4090,Limpieza,Alimentos,Rio Cuarto,2023-02-18 00:00:00
+27,2024-02-25 00:00:00,9,Yamila Molina,yamila.molina@mail.com,transferencia,7,Jugo de Manzana 1L,4,3269,13076,Alimentos,Alimentos,Carlos Paz,2023-01-09 00:00:00
+27,2024-02-25 00:00:00,9,Yamila Molina,yamila.molina@mail.com,transferencia,78,Verduras Congeladas Mix,4,4289,17156,Limpieza,Alimentos,Carlos Paz,2023-01-09 00:00:00
+28,2024-05-20 00:00:00,52,Diego Diaz,diego.diaz@mail.com,qr,74,Whisky 750ml,1,2953,2953,Limpieza,Alimentos,Rio Cuarto,2023-02-21 00:00:00
+28,2024-05-20 00:00:00,52,Diego Diaz,diego.diaz@mail.com,qr,91,Desodorante Aerosol,2,4690,9380,Alimentos,Limpieza,Rio Cuarto,2023-02-21 00:00:00
+28,2024-05-20 00:00:00,52,Diego Diaz,diego.diaz@mail.com,qr,72,Ron 700ml,1,3876,3876,Limpieza,Alimentos,Rio Cuarto,2023-02-21 00:00:00
+28,2024-05-20 00:00:00,52,Diego Diaz,diego.diaz@mail.com,qr,18,Queso Rallado 150g,2,3444,6888,Limpieza,Alimentos,Rio Cuarto,2023-02-21 00:00:00
+28,2024-05-20 00:00:00,52,Diego Diaz,diego.diaz@mail.com,qr,27,Alfajor Simple,5,2502,12510,Alimentos,Alimentos,Rio Cuarto,2023-02-21 00:00:00
+29,2024-02-20 00:00:00,49,Olivia Gomez,olivia.gomez@mail.com,qr,58,Caramelos Masticables,1,4752,4752,Limpieza,Alimentos,Rio Cuarto,2023-02-18 00:00:00
+29,2024-02-20 00:00:00,49,Olivia Gomez,olivia.gomez@mail.com,qr,36,Dulce de Leche 400g,2,2559,5118,Limpieza,Alimentos,Rio Cuarto,2023-02-18 00:00:00
+29,2024-02-20 00:00:00,49,Olivia Gomez,olivia.gomez@mail.com,qr,71,Vodka 700ml,4,508,2032,Alimentos,Alimentos,Rio Cuarto,2023-02-18 00:00:00
+29,2024-02-20 00:00:00,49,Olivia Gomez,olivia.gomez@mail.com,qr,27,Alfajor Simple,2,2502,5004,Alimentos,Alimentos,Rio Cuarto,2023-02-18 00:00:00
+29,2024-02-20 00:00:00,49,Olivia Gomez,olivia.gomez@mail.com,qr,66,Cerveza Negra 1L,1,1533,1533,Limpieza,Alimentos,Rio Cuarto,2023-02-18 00:00:00
+30,2024-03-03 00:00:00,93,Gael Rojas,gael.rojas@mail.com,efectivo,49,Harina de Trigo 1kg,4,2512,10048,Alimentos,Alimentos,Alta Gracia,2023-04-03 00:00:00
+30,2024-03-03 00:00:00,93,Gael Rojas,gael.rojas@mail.com,efectivo,78,Verduras Congeladas Mix,3,4289,12867,Limpieza,Alimentos,Alta Gracia,2023-04-03 00:00:00
+30,2024-03-03 00:00:00,93,Gael Rojas,gael.rojas@mail.com,efectivo,82,Aceitunas Negras 200g,4,2394,9576,Limpieza,Alimentos,Alta Gracia,2023-04-03 00:00:00
+30,2024-03-03 00:00:00,93,Gael Rojas,gael.rojas@mail.com,efectivo,7,Jugo de Manzana 1L,1,3269,3269,Alimentos,Alimentos,Alta Gracia,2023-04-03 00:00:00
+31,2024-05-22 00:00:00,19,Uma Silva,uma.silva@mail.com,tarjeta,92,Crema Dental 90g,4,2512,10048,Limpieza,Limpieza,Mendiolaza,2023-01-19 00:00:00
+31,2024-05-22 00:00:00,19,Uma Silva,uma.silva@mail.com,tarjeta,90,Toallas Húmedas x50,3,2902,8706,Limpieza,Limpieza,Mendiolaza,2023-01-19 00:00:00
+31,2024-05-22 00:00:00,19,Uma Silva,uma.silva@mail.com,tarjeta,84,Queso Azul 150g,5,1645,8225,Limpieza,Alimentos,Mendiolaza,2023-01-19 00:00:00
+32,2024-01-30 00:00:00,31,Felipe Ruiz,felipe.ruiz@mail.com,efectivo,72,Ron 700ml,5,3876,19380,Limpieza,Alimentos,Villa Maria,2023-01-31 00:00:00
+32,2024-01-30 00:00:00,31,Felipe Ruiz,felipe.ruiz@mail.com,efectivo,53,Lavandina 1L,4,1664,6656,Alimentos,Limpieza,Villa Maria,2023-01-31 00:00:00
+32,2024-01-30 00:00:00,31,Felipe Ruiz,felipe.ruiz@mail.com,efectivo,17,Queso Cremoso 500g,3,4834,14502,Alimentos,Alimentos,Villa Maria,2023-01-31 00:00:00
+32,2024-01-30 00:00:00,31,Felipe Ruiz,felipe.ruiz@mail.com,efectivo,35,Barrita de Cereal 30g,3,4430,13290,Alimentos,Alimentos,Villa Maria,2023-01-31 00:00:00
+33,2024-02-13 00:00:00,6,Uma Medina,uma.medina@mail.com,efectivo,47,Garbanzos 500g,2,2939,5878,Alimentos,Alimentos,Villa Maria,2023-01-06 00:00:00
+33,2024-02-13 00:00:00,6,Uma Medina,uma.medina@mail.com,efectivo,76,Pizza Congelada Muzzarella,4,4286,17144,Limpieza,Alimentos,Villa Maria,2023-01-06 00:00:00
+33,2024-02-13 00:00:00,6,Uma Medina,uma.medina@mail.com,efectivo,100,Trapo de Piso,1,4854,4854,Limpieza,Limpieza,Villa Maria,2023-01-06 00:00:00
+33,2024-02-13 00:00:00,6,Uma Medina,uma.medina@mail.com,efectivo,91,Desodorante Aerosol,2,4690,9380,Alimentos,Limpieza,Villa Maria,2023-01-06 00:00:00
+34,2024-01-13 00:00:00,58,Karina Acosta,karina.acosta2@mail.com,transferencia,10,Yerba Mate Intensa 1kg,1,4883,4883,Limpieza,Alimentos,Rio Cuarto,2023-02-27 00:00:00
+34,2024-01-13 00:00:00,58,Karina Acosta,karina.acosta2@mail.com,transferencia,32,Chocolate Amargo 100g,5,2234,11170,Limpieza,Alimentos,Rio Cuarto,2023-02-27 00:00:00
+35,2024-05-30 00:00:00,61,Guadalupe Martinez,guadalupe.martinez@mail.com,efectivo,93,Cepillo de Dientes,3,2142,6426,Alimentos,Limpieza,Rio Cuarto,2023-03-02 00:00:00
+35,2024-05-30 00:00:00,61,Guadalupe Martinez,guadalupe.martinez@mail.com,efectivo,80,Helado de Frutilla 1L,2,1981,3962,Limpieza,Alimentos,Rio Cuarto,2023-03-02 00:00:00
+35,2024-05-30 00:00:00,61,Guadalupe Martinez,guadalupe.martinez@mail.com,efectivo,88,Caldo Concentrado Carne,5,2570,12850,Limpieza,Alimentos,Rio Cuarto,2023-03-02 00:00:00
+36,2024-06-25 00:00:00,5,Agustina Flores,agustina.flores@mail.com,tarjeta,50,Azúcar 1kg,4,727,2908,Limpieza,Alimentos,Cordoba,2023-01-05 00:00:00
+36,2024-06-25 00:00:00,5,Agustina Flores,agustina.flores@mail.com,tarjeta,48,Porotos Negros 500g,2,4462,8924,Limpieza,Alimentos,Cordoba,2023-01-05 00:00:00
+37,2024-05-17 00:00:00,57,Julian Acosta,julian.acosta@mail.com,qr,18,Queso Rallado 150g,3,3444,10332,Limpieza,Alimentos,Rio Cuarto,2023-02-26 00:00:00
+38,2024-05-29 00:00:00,56,Bruno Diaz,bruno.diaz@mail.com,tarjeta,62,Stevia 100 sobres,5,3848,19240,Limpieza,Alimentos,Rio Cuarto,2023-02-25 00:00:00
+38,2024-05-29 00:00:00,56,Bruno Diaz,bruno.diaz@mail.com,tarjeta,14,Leche Entera 1L,3,1723,5169,Limpieza,Alimentos,Rio Cuarto,2023-02-25 00:00:00
+38,2024-05-29 00:00:00,56,Bruno Diaz,bruno.diaz@mail.com,tarjeta,65,Cerveza Rubia 1L,5,2423,12115,Alimentos,Alimentos,Rio Cuarto,2023-02-25 00:00:00
+38,2024-05-29 00:00:00,56,Bruno Diaz,bruno.diaz@mail.com,tarjeta,5,Agua Mineral 500ml,3,4777,14331,Alimentos,Alimentos,Rio Cuarto,2023-02-25 00:00:00
+39,2024-03-05 00:00:00,5,Agustina Flores,agustina.flores@mail.com,efectivo,44,Arroz Largo Fino 1kg,4,2979,11916,Limpieza,Alimentos,Cordoba,2023-01-05 00:00:00
+39,2024-03-05 00:00:00,5,Agustina Flores,agustina.flores@mail.com,efectivo,22,Medialunas de Manteca,2,2069,4138,Limpieza,Alimentos,Cordoba,2023-01-05 00:00:00
+39,2024-03-05 00:00:00,5,Agustina Flores,agustina.flores@mail.com,efectivo,58,Caramelos Masticables,4,4752,19008,Limpieza,Alimentos,Cordoba,2023-01-05 00:00:00
+39,2024-03-05 00:00:00,5,Agustina Flores,agustina.flores@mail.com,efectivo,81,Aceitunas Verdes 200g,4,2520,10080,Alimentos,Alimentos,Cordoba,2023-01-05 00:00:00
+40,2024-05-13 00:00:00,15,Tomas Ruiz,tomas.ruiz@mail.com,efectivo,44,Arroz Largo Fino 1kg,2,2979,5958,Limpieza,Alimentos,Cordoba,2023-01-15 00:00:00
+41,2024-03-08 00:00:00,29,Diego Fernandez,diego.fernandez@mail.com,tarjeta,51,Sal Fina 500g,1,1745,1745,Alimentos,Alimentos,Alta Gracia,2023-01-29 00:00:00
+41,2024-03-08 00:00:00,29,Diego Fernandez,diego.fernandez@mail.com,tarjeta,15,Leche Descremada 1L,1,2538,2538,Alimentos,Alimentos,Alta Gracia,2023-01-29 00:00:00
+42,2024-04-18 00:00:00,12,Gael Gomez,gael.gomez@mail.com,tarjeta,47,Garbanzos 500g,3,2939,8817,Alimentos,Alimentos,Alta Gracia,2023-01-12 00:00:00
+42,2024-04-18 00:00:00,12,Gael Gomez,gael.gomez@mail.com,tarjeta,29,Papas Fritas Onduladas 100g,1,1868,1868,Alimentos,Alimentos,Alta Gracia,2023-01-12 00:00:00
+42,2024-04-18 00:00:00,12,Gael Gomez,gael.gomez@mail.com,tarjeta,73,Gin 700ml,3,1561,4683,Alimentos,Alimentos,Alta Gracia,2023-01-12 00:00:00
+43,2024-02-18 00:00:00,23,Helena Fernandez,helena.fernandez@mail.com,efectivo,1,Coca Cola 1.5L,5,2347,11735,Alimentos,Alimentos,Rio Cuarto,2023-01-23 00:00:00
+43,2024-02-18 00:00:00,23,Helena Fernandez,helena.fernandez@mail.com,efectivo,49,Harina de Trigo 1kg,2,2512,5024,Alimentos,Alimentos,Rio Cuarto,2023-01-23 00:00:00
+43,2024-02-18 00:00:00,23,Helena Fernandez,helena.fernandez@mail.com,efectivo,66,Cerveza Negra 1L,2,1533,3066,Limpieza,Alimentos,Rio Cuarto,2023-01-23 00:00:00
+44,2024-02-21 00:00:00,21,Elena Rodriguez,elena.rodriguez@mail.com,efectivo,48,Porotos Negros 500g,1,4462,4462,Limpieza,Alimentos,Alta Gracia,2023-01-21 00:00:00
+44,2024-02-21 00:00:00,21,Elena Rodriguez,elena.rodriguez@mail.com,efectivo,47,Garbanzos 500g,2,2939,5878,Alimentos,Alimentos,Alta Gracia,2023-01-21 00:00:00
+44,2024-02-21 00:00:00,21,Elena Rodriguez,elena.rodriguez@mail.com,efectivo,100,Trapo de Piso,2,4854,9708,Limpieza,Limpieza,Alta Gracia,2023-01-21 00:00:00
+45,2024-01-19 00:00:00,15,Tomas Ruiz,tomas.ruiz@mail.com,efectivo,12,Té Negro 20 saquitos,2,570,1140,Limpieza,Alimentos,Cordoba,2023-01-15 00:00:00
+45,2024-01-19 00:00:00,15,Tomas Ruiz,tomas.ruiz@mail.com,efectivo,18,Queso Rallado 150g,2,3444,6888,Limpieza,Alimentos,Cordoba,2023-01-15 00:00:00
+45,2024-01-19 00:00:00,15,Tomas Ruiz,tomas.ruiz@mail.com,efectivo,87,Sopa Instantánea Pollo,4,1679,6716,Alimentos,Alimentos,Cordoba,2023-01-15 00:00:00
+45,2024-01-19 00:00:00,15,Tomas Ruiz,tomas.ruiz@mail.com,efectivo,98,Desengrasante 500ml,1,2843,2843,Limpieza,Limpieza,Cordoba,2023-01-15 00:00:00
+45,2024-01-19 00:00:00,15,Tomas Ruiz,tomas.ruiz@mail.com,efectivo,52,Detergente Líquido 750ml,2,2582,5164,Limpieza,Limpieza,Cordoba,2023-01-15 00:00:00
+46,2024-03-25 00:00:00,46,Agustina Martinez,agustina.martinez@mail.com,tarjeta,21,Pan Lactal Integral,1,272,272,Alimentos,Alimentos,Alta Gracia,2023-02-15 00:00:00
+47,2024-05-04 00:00:00,52,Diego Diaz,diego.diaz@mail.com,transferencia,43,Salsa de Tomate 500g,5,887,4435,Alimentos,Alimentos,Rio Cuarto,2023-02-21 00:00:00
+47,2024-05-04 00:00:00,52,Diego Diaz,diego.diaz@mail.com,transferencia,6,Jugo de Naranja 1L,3,4170,12510,Limpieza,Alimentos,Rio Cuarto,2023-02-21 00:00:00
+48,2024-01-26 00:00:00,84,Pablo Sanchez,pablo.sanchez@mail.com,qr,70,Fernet 750ml,1,4061,4061,Limpieza,Alimentos,Cordoba,2023-03-25 00:00:00
+48,2024-01-26 00:00:00,84,Pablo Sanchez,pablo.sanchez@mail.com,qr,54,Jabón de Tocador,5,1592,7960,Limpieza,Limpieza,Cordoba,2023-03-25 00:00:00
+48,2024-01-26 00:00:00,84,Pablo Sanchez,pablo.sanchez@mail.com,qr,57,Servilletas x100,4,4520,18080,Alimentos,Limpieza,Cordoba,2023-03-25 00:00:00
+49,2024-06-02 00:00:00,5,Agustina Flores,agustina.flores@mail.com,efectivo,59,Chicle Menta,2,3612,7224,Alimentos,Alimentos,Cordoba,2023-01-05 00:00:00
+49,2024-06-02 00:00:00,5,Agustina Flores,agustina.flores@mail.com,efectivo,21,Pan Lactal Integral,4,272,1088,Alimentos,Alimentos,Cordoba,2023-01-05 00:00:00
+49,2024-06-02 00:00:00,5,Agustina Flores,agustina.flores@mail.com,efectivo,59,Chicle Menta,4,3612,14448,Alimentos,Alimentos,Cordoba,2023-01-05 00:00:00
+49,2024-06-02 00:00:00,5,Agustina Flores,agustina.flores@mail.com,efectivo,18,Queso Rallado 150g,3,3444,10332,Limpieza,Alimentos,Cordoba,2023-01-05 00:00:00
+49,2024-06-02 00:00:00,5,Agustina Flores,agustina.flores@mail.com,efectivo,85,Jugo en Polvo Naranja,3,1856,5568,Alimentos,Alimentos,Cordoba,2023-01-05 00:00:00
+50,2024-01-09 00:00:00,8,Bruno Castro,bruno.castro@mail.com,transferencia,10,Yerba Mate Intensa 1kg,2,4883,9766,Limpieza,Alimentos,Carlos Paz,2023-01-08 00:00:00
+50,2024-01-09 00:00:00,8,Bruno Castro,bruno.castro@mail.com,transferencia,34,Turrón 50g,5,503,2515,Limpieza,Alimentos,Carlos Paz,2023-01-08 00:00:00
+50,2024-01-09 00:00:00,8,Bruno Castro,bruno.castro@mail.com,transferencia,58,Caramelos Masticables,5,4752,23760,Limpieza,Alimentos,Carlos Paz,2023-01-08 00:00:00
+50,2024-01-09 00:00:00,8,Bruno Castro,bruno.castro@mail.com,transferencia,32,Chocolate Amargo 100g,3,2234,6702,Limpieza,Alimentos,Carlos Paz,2023-01-08 00:00:00
+50,2024-01-09 00:00:00,8,Bruno Castro,bruno.castro@mail.com,transferencia,91,Desodorante Aerosol,4,4690,18760,Alimentos,Limpieza,Carlos Paz,2023-01-08 00:00:00
+51,2024-02-18 00:00:00,39,Santiago Diaz,santiago.diaz@mail.com,efectivo,31,Mix de Frutos Secos 200g,1,3409,3409,Alimentos,Alimentos,Alta Gracia,2023-02-08 00:00:00
+52,2024-05-10 00:00:00,5,Agustina Flores,agustina.flores@mail.com,tarjeta,83,Queso Untable 190g,2,1830,3660,Alimentos,Alimentos,Cordoba,2023-01-05 00:00:00
+52,2024-05-10 00:00:00,5,Agustina Flores,agustina.flores@mail.com,tarjeta,9,Yerba Mate Suave 1kg,4,3878,15512,Alimentos,Alimentos,Cordoba,2023-01-05 00:00:00
+52,2024-05-10 00:00:00,5,Agustina Flores,agustina.flores@mail.com,tarjeta,81,Aceitunas Verdes 200g,5,2520,12600,Alimentos,Alimentos,Cordoba,2023-01-05 00:00:00
+52,2024-05-10 00:00:00,5,Agustina Flores,agustina.flores@mail.com,tarjeta,38,Mermelada de Frutilla 400g,3,1584,4752,Limpieza,Alimentos,Cordoba,2023-01-05 00:00:00
+53,2024-01-25 00:00:00,56,Bruno Diaz,bruno.diaz@mail.com,tarjeta,28,Papas Fritas Clásicas 100g,1,936,936,Limpieza,Alimentos,Rio Cuarto,2023-02-25 00:00:00
+54,2024-03-26 00:00:00,1,Mariana Lopez,mariana.lopez@mail.com,tarjeta,65,Cerveza Rubia 1L,1,2423,2423,Alimentos,Alimentos,Carlos Paz,2023-01-01 00:00:00
+54,2024-03-26 00:00:00,1,Mariana Lopez,mariana.lopez@mail.com,tarjeta,18,Queso Rallado 150g,2,3444,6888,Limpieza,Alimentos,Carlos Paz,2023-01-01 00:00:00
+54,2024-03-26 00:00:00,1,Mariana Lopez,mariana.lopez@mail.com,tarjeta,91,Desodorante Aerosol,3,4690,14070,Alimentos,Limpieza,Carlos Paz,2023-01-01 00:00:00
+54,2024-03-26 00:00:00,1,Mariana Lopez,mariana.lopez@mail.com,tarjeta,8,Energética Nitro 500ml,3,4218,12654,Limpieza,Alimentos,Carlos Paz,2023-01-01 00:00:00
+55,2024-01-04 00:00:00,100,Agustina Lopez,agustina.lopez@mail.com,qr,39,Helado Vainilla 1L,4,469,1876,Alimentos,Alimentos,Cordoba,2023-04-10 00:00:00
+56,2024-06-14 00:00:00,15,Tomas Ruiz,tomas.ruiz@mail.com,qr,18,Queso Rallado 150g,5,3444,17220,Limpieza,Alimentos,Cordoba,2023-01-15 00:00:00
+57,2024-01-10 00:00:00,34,Bruno Castro,bruno.castro2@mail.com,efectivo,31,Mix de Frutos Secos 200g,3,3409,10227,Alimentos,Alimentos,Villa Maria,2023-02-03 00:00:00
+57,2024-01-10 00:00:00,34,Bruno Castro,bruno.castro2@mail.com,efectivo,41,Aceite de Girasol 1L,4,860,3440,Alimentos,Alimentos,Villa Maria,2023-02-03 00:00:00
+57,2024-01-10 00:00:00,34,Bruno Castro,bruno.castro2@mail.com,efectivo,9,Yerba Mate Suave 1kg,5,3878,19390,Alimentos,Alimentos,Villa Maria,2023-02-03 00:00:00
+57,2024-01-10 00:00:00,34,Bruno Castro,bruno.castro2@mail.com,efectivo,76,Pizza Congelada Muzzarella,3,4286,12858,Limpieza,Alimentos,Villa Maria,2023-02-03 00:00:00
+57,2024-01-10 00:00:00,34,Bruno Castro,bruno.castro2@mail.com,efectivo,98,Desengrasante 500ml,4,2843,11372,Limpieza,Limpieza,Villa Maria,2023-02-03 00:00:00
+58,2024-02-04 00:00:00,48,Rocio Alvarez,rocio.alvarez@mail.com,transferencia,43,Salsa de Tomate 500g,2,887,1774,Alimentos,Alimentos,Cordoba,2023-02-17 00:00:00
+58,2024-02-04 00:00:00,48,Rocio Alvarez,rocio.alvarez@mail.com,transferencia,11,Café Molido 250g,1,2053,2053,Alimentos,Alimentos,Cordoba,2023-02-17 00:00:00
+59,2024-04-28 00:00:00,62,Guadalupe Romero,guadalupe.romero@mail.com,tarjeta,31,Mix de Frutos Secos 200g,1,3409,3409,Alimentos,Alimentos,Carlos Paz,2023-03-03 00:00:00
+59,2024-04-28 00:00:00,62,Guadalupe Romero,guadalupe.romero@mail.com,tarjeta,8,Energética Nitro 500ml,2,4218,8436,Limpieza,Alimentos,Carlos Paz,2023-03-03 00:00:00
+59,2024-04-28 00:00:00,62,Guadalupe Romero,guadalupe.romero@mail.com,tarjeta,97,Limpiavidrios 500ml,5,872,4360,Alimentos,Limpieza,Carlos Paz,2023-03-03 00:00:00
+60,2024-04-04 00:00:00,81,Camila Ruiz,camila.ruiz@mail.com,transferencia,43,Salsa de Tomate 500g,1,887,887,Alimentos,Alimentos,Carlos Paz,2023-03-22 00:00:00
+60,2024-04-04 00:00:00,81,Camila Ruiz,camila.ruiz@mail.com,transferencia,98,Desengrasante 500ml,3,2843,8529,Limpieza,Limpieza,Carlos Paz,2023-03-22 00:00:00
+60,2024-04-04 00:00:00,81,Camila Ruiz,camila.ruiz@mail.com,transferencia,15,Leche Descremada 1L,1,2538,2538,Alimentos,Alimentos,Carlos Paz,2023-03-22 00:00:00
+60,2024-04-04 00:00:00,81,Camila Ruiz,camila.ruiz@mail.com,transferencia,21,Pan Lactal Integral,2,272,544,Alimentos,Alimentos,Carlos Paz,2023-03-22 00:00:00
+60,2024-04-04 00:00:00,81,Camila Ruiz,camila.ruiz@mail.com,transferencia,91,Desodorante Aerosol,4,4690,18760,Alimentos,Limpieza,Carlos Paz,2023-03-22 00:00:00
+61,2024-06-01 00:00:00,27,Tomas Castro,tomas.castro@mail.com,efectivo,9,Yerba Mate Suave 1kg,3,3878,11634,Alimentos,Alimentos,Rio Cuarto,2023-01-27 00:00:00
+61,2024-06-01 00:00:00,27,Tomas Castro,tomas.castro@mail.com,efectivo,19,Manteca 200g,3,3251,9753,Alimentos,Alimentos,Rio Cuarto,2023-01-27 00:00:00
+62,2024-05-01 00:00:00,100,Agustina Lopez,agustina.lopez@mail.com,transferencia,47,Garbanzos 500g,4,2939,11756,Alimentos,Alimentos,Cordoba,2023-04-10 00:00:00
+62,2024-05-01 00:00:00,100,Agustina Lopez,agustina.lopez@mail.com,transferencia,95,Mascarilla Capilar,3,1581,4743,Alimentos,Limpieza,Cordoba,2023-04-10 00:00:00
+63,2024-06-19 00:00:00,25,Karina Castro,karina.castro@mail.com,tarjeta,8,Energética Nitro 500ml,5,4218,21090,Limpieza,Alimentos,Rio Cuarto,2023-01-25 00:00:00
+63,2024-06-19 00:00:00,25,Karina Castro,karina.castro@mail.com,tarjeta,2,Pepsi 1.5L,2,4973,9946,Limpieza,Alimentos,Rio Cuarto,2023-01-25 00:00:00
+63,2024-06-19 00:00:00,25,Karina Castro,karina.castro@mail.com,tarjeta,70,Fernet 750ml,3,4061,12183,Limpieza,Alimentos,Rio Cuarto,2023-01-25 00:00:00
+63,2024-06-19 00:00:00,25,Karina Castro,karina.castro@mail.com,tarjeta,45,Fideos Spaghetti 500g,4,745,2980,Alimentos,Alimentos,Rio Cuarto,2023-01-25 00:00:00
+64,2024-03-07 00:00:00,58,Karina Acosta,karina.acosta2@mail.com,qr,4,Fanta Naranja 1.5L,2,2033,4066,Limpieza,Alimentos,Rio Cuarto,2023-02-27 00:00:00
+64,2024-03-07 00:00:00,58,Karina Acosta,karina.acosta2@mail.com,qr,41,Aceite de Girasol 1L,2,860,1720,Alimentos,Alimentos,Rio Cuarto,2023-02-27 00:00:00
+65,2024-04-30 00:00:00,30,Ivana Medina,ivana.medina@mail.com,qr,77,Empanadas Congeladas,4,4778,19112,Alimentos,Alimentos,Alta Gracia,2023-01-30 00:00:00
+65,2024-04-30 00:00:00,30,Ivana Medina,ivana.medina@mail.com,qr,22,Medialunas de Manteca,3,2069,6207,Limpieza,Alimentos,Alta Gracia,2023-01-30 00:00:00
+65,2024-04-30 00:00:00,30,Ivana Medina,ivana.medina@mail.com,qr,38,Mermelada de Frutilla 400g,5,1584,7920,Limpieza,Alimentos,Alta Gracia,2023-01-30 00:00:00
+65,2024-04-30 00:00:00,30,Ivana Medina,ivana.medina@mail.com,qr,36,Dulce de Leche 400g,4,2559,10236,Limpieza,Alimentos,Alta Gracia,2023-01-30 00:00:00
+66,2024-03-14 00:00:00,69,Felipe Flores,felipe.flores@mail.com,qr,16,Yogur Natural 200g,3,4613,13839,Limpieza,Alimentos,Rio Cuarto,2023-03-10 00:00:00
+67,2024-03-21 00:00:00,66,Tomas Herrera,tomas.herrera@mail.com,efectivo,53,Lavandina 1L,1,1664,1664,Alimentos,Limpieza,Villa Maria,2023-03-07 00:00:00
+67,2024-03-21 00:00:00,66,Tomas Herrera,tomas.herrera@mail.com,efectivo,8,Energética Nitro 500ml,2,4218,8436,Limpieza,Alimentos,Villa Maria,2023-03-07 00:00:00
+68,2024-06-28 00:00:00,27,Tomas Castro,tomas.castro@mail.com,qr,94,Hilo Dental,4,1418,5672,Limpieza,Limpieza,Rio Cuarto,2023-01-27 00:00:00
+69,2024-01-06 00:00:00,42,Tomas Flores,tomas.flores@mail.com,qr,76,Pizza Congelada Muzzarella,4,4286,17144,Limpieza,Alimentos,Alta Gracia,2023-02-11 00:00:00
+69,2024-01-06 00:00:00,42,Tomas Flores,tomas.flores@mail.com,qr,74,Whisky 750ml,3,2953,8859,Limpieza,Alimentos,Alta Gracia,2023-02-11 00:00:00
+70,2024-02-02 00:00:00,41,Elena Rodriguez,elena.rodriguez2@mail.com,transferencia,66,Cerveza Negra 1L,3,1533,4599,Limpieza,Alimentos,Alta Gracia,2023-02-10 00:00:00
+70,2024-02-02 00:00:00,41,Elena Rodriguez,elena.rodriguez2@mail.com,transferencia,89,Caldo Concentrado Verdura,4,1003,4012,Alimentos,Alimentos,Alta Gracia,2023-02-10 00:00:00
+70,2024-02-02 00:00:00,41,Elena Rodriguez,elena.rodriguez2@mail.com,transferencia,38,Mermelada de Frutilla 400g,3,1584,4752,Limpieza,Alimentos,Alta Gracia,2023-02-10 00:00:00
+71,2024-06-02 00:00:00,40,Felipe Diaz,felipe.diaz@mail.com,qr,11,Café Molido 250g,3,2053,6159,Alimentos,Alimentos,Rio Cuarto,2023-02-09 00:00:00
+71,2024-06-02 00:00:00,40,Felipe Diaz,felipe.diaz@mail.com,qr,79,Hamburguesas Congeladas x4,4,2420,9680,Alimentos,Alimentos,Rio Cuarto,2023-02-09 00:00:00
+71,2024-06-02 00:00:00,40,Felipe Diaz,felipe.diaz@mail.com,qr,100,Trapo de Piso,4,4854,19416,Limpieza,Limpieza,Rio Cuarto,2023-02-09 00:00:00
+71,2024-06-02 00:00:00,40,Felipe Diaz,felipe.diaz@mail.com,qr,92,Crema Dental 90g,1,2512,2512,Limpieza,Limpieza,Rio Cuarto,2023-02-09 00:00:00
+72,2024-02-17 00:00:00,26,Camila Sanchez,camila.sanchez@mail.com,qr,94,Hilo Dental,3,1418,4254,Limpieza,Limpieza,Alta Gracia,2023-01-26 00:00:00
+72,2024-02-17 00:00:00,26,Camila Sanchez,camila.sanchez@mail.com,qr,41,Aceite de Girasol 1L,4,860,3440,Alimentos,Alimentos,Alta Gracia,2023-01-26 00:00:00
+72,2024-02-17 00:00:00,26,Camila Sanchez,camila.sanchez@mail.com,qr,51,Sal Fina 500g,2,1745,3490,Alimentos,Alimentos,Alta Gracia,2023-01-26 00:00:00
+73,2024-05-16 00:00:00,42,Tomas Flores,tomas.flores@mail.com,transferencia,28,Papas Fritas Clásicas 100g,1,936,936,Limpieza,Alimentos,Alta Gracia,2023-02-11 00:00:00
+73,2024-05-16 00:00:00,42,Tomas Flores,tomas.flores@mail.com,transferencia,24,Galletitas Chocolate,3,1305,3915,Limpieza,Alimentos,Alta Gracia,2023-02-11 00:00:00
+73,2024-05-16 00:00:00,42,Tomas Flores,tomas.flores@mail.com,transferencia,19,Manteca 200g,1,3251,3251,Alimentos,Alimentos,Alta Gracia,2023-02-11 00:00:00
+74,2024-04-26 00:00:00,56,Bruno Diaz,bruno.diaz@mail.com,efectivo,32,Chocolate Amargo 100g,3,2234,6702,Limpieza,Alimentos,Rio Cuarto,2023-02-25 00:00:00
+74,2024-04-26 00:00:00,56,Bruno Diaz,bruno.diaz@mail.com,efectivo,14,Leche Entera 1L,2,1723,3446,Limpieza,Alimentos,Rio Cuarto,2023-02-25 00:00:00
+74,2024-04-26 00:00:00,56,Bruno Diaz,bruno.diaz@mail.com,efectivo,55,Shampoo 400ml,2,1407,2814,Alimentos,Limpieza,Rio Cuarto,2023-02-25 00:00:00
+75,2024-05-23 00:00:00,61,Guadalupe Martinez,guadalupe.martinez@mail.com,qr,3,Sprite 1.5L,4,4964,19856,Alimentos,Alimentos,Rio Cuarto,2023-03-02 00:00:00
+75,2024-05-23 00:00:00,61,Guadalupe Martinez,guadalupe.martinez@mail.com,qr,2,Pepsi 1.5L,5,4973,24865,Limpieza,Alimentos,Rio Cuarto,2023-03-02 00:00:00
+76,2024-05-15 00:00:00,75,Santiago Castro,santiago.castro@mail.com,tarjeta,22,Medialunas de Manteca,4,2069,8276,Limpieza,Alimentos,Rio Cuarto,2023-03-16 00:00:00
+76,2024-05-15 00:00:00,75,Santiago Castro,santiago.castro@mail.com,tarjeta,23,Bizcochos Salados,4,2380,9520,Alimentos,Alimentos,Rio Cuarto,2023-03-16 00:00:00
+76,2024-05-15 00:00:00,75,Santiago Castro,santiago.castro@mail.com,tarjeta,24,Galletitas Chocolate,1,1305,1305,Limpieza,Alimentos,Rio Cuarto,2023-03-16 00:00:00
+76,2024-05-15 00:00:00,75,Santiago Castro,santiago.castro@mail.com,tarjeta,11,Café Molido 250g,2,2053,4106,Alimentos,Alimentos,Rio Cuarto,2023-03-16 00:00:00
+77,2024-05-26 00:00:00,55,Olivia Ruiz,olivia.ruiz@mail.com,tarjeta,53,Lavandina 1L,2,1664,3328,Alimentos,Limpieza,Mendiolaza,2023-02-24 00:00:00
+77,2024-05-26 00:00:00,55,Olivia Ruiz,olivia.ruiz@mail.com,tarjeta,41,Aceite de Girasol 1L,1,860,860,Alimentos,Alimentos,Mendiolaza,2023-02-24 00:00:00
+77,2024-05-26 00:00:00,55,Olivia Ruiz,olivia.ruiz@mail.com,tarjeta,34,Turrón 50g,5,503,2515,Limpieza,Alimentos,Mendiolaza,2023-02-24 00:00:00
+77,2024-05-26 00:00:00,55,Olivia Ruiz,olivia.ruiz@mail.com,tarjeta,98,Desengrasante 500ml,2,2843,5686,Limpieza,Limpieza,Mendiolaza,2023-02-24 00:00:00
+77,2024-05-26 00:00:00,55,Olivia Ruiz,olivia.ruiz@mail.com,tarjeta,39,Helado Vainilla 1L,2,469,938,Alimentos,Alimentos,Mendiolaza,2023-02-24 00:00:00
+78,2024-04-29 00:00:00,12,Gael Gomez,gael.gomez@mail.com,qr,37,Mermelada de Durazno 400g,3,3196,9588,Alimentos,Alimentos,Alta Gracia,2023-01-12 00:00:00
+78,2024-04-29 00:00:00,12,Gael Gomez,gael.gomez@mail.com,qr,79,Hamburguesas Congeladas x4,5,2420,12100,Alimentos,Alimentos,Alta Gracia,2023-01-12 00:00:00
+78,2024-04-29 00:00:00,12,Gael Gomez,gael.gomez@mail.com,qr,17,Queso Cremoso 500g,2,4834,9668,Alimentos,Alimentos,Alta Gracia,2023-01-12 00:00:00
+78,2024-04-29 00:00:00,12,Gael Gomez,gael.gomez@mail.com,qr,85,Jugo en Polvo Naranja,1,1856,1856,Alimentos,Alimentos,Alta Gracia,2023-01-12 00:00:00
+78,2024-04-29 00:00:00,12,Gael Gomez,gael.gomez@mail.com,qr,39,Helado Vainilla 1L,2,469,938,Alimentos,Alimentos,Alta Gracia,2023-01-12 00:00:00
+79,2024-06-06 00:00:00,57,Julian Acosta,julian.acosta@mail.com,qr,81,Aceitunas Verdes 200g,2,2520,5040,Alimentos,Alimentos,Rio Cuarto,2023-02-26 00:00:00
+79,2024-06-06 00:00:00,57,Julian Acosta,julian.acosta@mail.com,qr,56,Papel Higiénico x4,2,2532,5064,Limpieza,Limpieza,Rio Cuarto,2023-02-26 00:00:00
+80,2024-03-25 00:00:00,54,Uma Herrera,uma.herrera@mail.com,efectivo,39,Helado Vainilla 1L,5,469,2345,Alimentos,Alimentos,Alta Gracia,2023-02-23 00:00:00
+80,2024-03-25 00:00:00,54,Uma Herrera,uma.herrera@mail.com,efectivo,30,Maní Salado 200g,3,4875,14625,Limpieza,Alimentos,Alta Gracia,2023-02-23 00:00:00
+80,2024-03-25 00:00:00,54,Uma Herrera,uma.herrera@mail.com,efectivo,41,Aceite de Girasol 1L,5,860,4300,Alimentos,Alimentos,Alta Gracia,2023-02-23 00:00:00
+81,2024-03-09 00:00:00,49,Olivia Gomez,olivia.gomez@mail.com,transferencia,10,Yerba Mate Intensa 1kg,2,4883,9766,Limpieza,Alimentos,Rio Cuarto,2023-02-18 00:00:00
+82,2024-01-25 00:00:00,19,Uma Silva,uma.silva@mail.com,tarjeta,38,Mermelada de Frutilla 400g,1,1584,1584,Limpieza,Alimentos,Mendiolaza,2023-01-19 00:00:00
+82,2024-01-25 00:00:00,19,Uma Silva,uma.silva@mail.com,tarjeta,28,Papas Fritas Clásicas 100g,2,936,1872,Limpieza,Alimentos,Mendiolaza,2023-01-19 00:00:00
+82,2024-01-25 00:00:00,19,Uma Silva,uma.silva@mail.com,tarjeta,29,Papas Fritas Onduladas 100g,5,1868,9340,Alimentos,Alimentos,Mendiolaza,2023-01-19 00:00:00
+82,2024-01-25 00:00:00,19,Uma Silva,uma.silva@mail.com,tarjeta,82,Aceitunas Negras 200g,2,2394,4788,Limpieza,Alimentos,Mendiolaza,2023-01-19 00:00:00
+83,2024-05-28 00:00:00,91,Uma Sanchez,uma.sanchez@mail.com,efectivo,5,Agua Mineral 500ml,2,4777,9554,Alimentos,Alimentos,Mendiolaza,2023-04-01 00:00:00
+83,2024-05-28 00:00:00,91,Uma Sanchez,uma.sanchez@mail.com,efectivo,26,Alfajor Triple,2,1001,2002,Limpieza,Alimentos,Mendiolaza,2023-04-01 00:00:00
+83,2024-05-28 00:00:00,91,Uma Sanchez,uma.sanchez@mail.com,efectivo,73,Gin 700ml,5,1561,7805,Alimentos,Alimentos,Mendiolaza,2023-04-01 00:00:00
+83,2024-05-28 00:00:00,91,Uma Sanchez,uma.sanchez@mail.com,efectivo,51,Sal Fina 500g,2,1745,3490,Alimentos,Alimentos,Mendiolaza,2023-04-01 00:00:00
+84,2024-01-02 00:00:00,72,Camila Rodriguez,camila.rodriguez@mail.com,efectivo,83,Queso Untable 190g,5,1830,9150,Alimentos,Alimentos,Cordoba,2023-03-13 00:00:00
+84,2024-01-02 00:00:00,72,Camila Rodriguez,camila.rodriguez@mail.com,efectivo,76,Pizza Congelada Muzzarella,4,4286,17144,Limpieza,Alimentos,Cordoba,2023-03-13 00:00:00
+85,2024-01-23 00:00:00,42,Tomas Flores,tomas.flores@mail.com,transferencia,32,Chocolate Amargo 100g,4,2234,8936,Limpieza,Alimentos,Alta Gracia,2023-02-11 00:00:00
+85,2024-01-23 00:00:00,42,Tomas Flores,tomas.flores@mail.com,transferencia,80,Helado de Frutilla 1L,2,1981,3962,Limpieza,Alimentos,Alta Gracia,2023-02-11 00:00:00
+86,2024-01-10 00:00:00,40,Felipe Diaz,felipe.diaz@mail.com,efectivo,66,Cerveza Negra 1L,2,1533,3066,Limpieza,Alimentos,Rio Cuarto,2023-02-09 00:00:00
+86,2024-01-10 00:00:00,40,Felipe Diaz,felipe.diaz@mail.com,efectivo,1,Coca Cola 1.5L,4,2347,9388,Alimentos,Alimentos,Rio Cuarto,2023-02-09 00:00:00
+86,2024-01-10 00:00:00,40,Felipe Diaz,felipe.diaz@mail.com,efectivo,13,Té Verde 20 saquitos,5,2383,11915,Alimentos,Alimentos,Rio Cuarto,2023-02-09 00:00:00
+86,2024-01-10 00:00:00,40,Felipe Diaz,felipe.diaz@mail.com,efectivo,41,Aceite de Girasol 1L,3,860,2580,Alimentos,Alimentos,Rio Cuarto,2023-02-09 00:00:00
+87,2024-04-20 00:00:00,100,Agustina Lopez,agustina.lopez@mail.com,qr,53,Lavandina 1L,2,1664,3328,Alimentos,Limpieza,Cordoba,2023-04-10 00:00:00
+87,2024-04-20 00:00:00,100,Agustina Lopez,agustina.lopez@mail.com,qr,86,Jugo en Polvo Limón,2,4090,8180,Limpieza,Alimentos,Cordoba,2023-04-10 00:00:00
+88,2024-06-21 00:00:00,37,Martina Perez,martina.perez@mail.com,efectivo,7,Jugo de Manzana 1L,5,3269,16345,Alimentos,Alimentos,Mendiolaza,2023-02-06 00:00:00
+88,2024-06-21 00:00:00,37,Martina Perez,martina.perez@mail.com,efectivo,53,Lavandina 1L,5,1664,8320,Alimentos,Limpieza,Mendiolaza,2023-02-06 00:00:00
+88,2024-06-21 00:00:00,37,Martina Perez,martina.perez@mail.com,efectivo,8,Energética Nitro 500ml,4,4218,16872,Limpieza,Alimentos,Mendiolaza,2023-02-06 00:00:00
+89,2024-01-18 00:00:00,17,Pablo Gomez,pablo.gomez@mail.com,tarjeta,72,Ron 700ml,2,3876,7752,Limpieza,Alimentos,Villa Maria,2023-01-17 00:00:00
+90,2024-01-08 00:00:00,46,Agustina Martinez,agustina.martinez@mail.com,qr,79,Hamburguesas Congeladas x4,4,2420,9680,Alimentos,Alimentos,Alta Gracia,2023-02-15 00:00:00
+90,2024-01-08 00:00:00,46,Agustina Martinez,agustina.martinez@mail.com,qr,6,Jugo de Naranja 1L,2,4170,8340,Limpieza,Alimentos,Alta Gracia,2023-02-15 00:00:00
+91,2024-02-19 00:00:00,39,Santiago Diaz,santiago.diaz@mail.com,efectivo,57,Servilletas x100,3,4520,13560,Alimentos,Limpieza,Alta Gracia,2023-02-08 00:00:00
+92,2024-02-09 00:00:00,42,Tomas Flores,tomas.flores@mail.com,transferencia,10,Yerba Mate Intensa 1kg,2,4883,9766,Limpieza,Alimentos,Alta Gracia,2023-02-11 00:00:00
+92,2024-02-09 00:00:00,42,Tomas Flores,tomas.flores@mail.com,transferencia,43,Salsa de Tomate 500g,4,887,3548,Alimentos,Alimentos,Alta Gracia,2023-02-11 00:00:00
+93,2024-01-29 00:00:00,90,Guadalupe Ruiz,guadalupe.ruiz@mail.com,efectivo,80,Helado de Frutilla 1L,4,1981,7924,Limpieza,Alimentos,Rio Cuarto,2023-03-31 00:00:00
+93,2024-01-29 00:00:00,90,Guadalupe Ruiz,guadalupe.ruiz@mail.com,efectivo,66,Cerveza Negra 1L,3,1533,4599,Limpieza,Alimentos,Rio Cuarto,2023-03-31 00:00:00
+93,2024-01-29 00:00:00,90,Guadalupe Ruiz,guadalupe.ruiz@mail.com,efectivo,91,Desodorante Aerosol,3,4690,14070,Alimentos,Limpieza,Rio Cuarto,2023-03-31 00:00:00
+94,2024-03-06 00:00:00,41,Elena Rodriguez,elena.rodriguez2@mail.com,qr,24,Galletitas Chocolate,1,1305,1305,Limpieza,Alimentos,Alta Gracia,2023-02-10 00:00:00
+94,2024-03-06 00:00:00,41,Elena Rodriguez,elena.rodriguez2@mail.com,qr,86,Jugo en Polvo Limón,5,4090,20450,Limpieza,Alimentos,Alta Gracia,2023-02-10 00:00:00
+94,2024-03-06 00:00:00,41,Elena Rodriguez,elena.rodriguez2@mail.com,qr,98,Desengrasante 500ml,2,2843,5686,Limpieza,Limpieza,Alta Gracia,2023-02-10 00:00:00
+95,2024-02-25 00:00:00,26,Camila Sanchez,camila.sanchez@mail.com,qr,72,Ron 700ml,5,3876,19380,Limpieza,Alimentos,Alta Gracia,2023-01-26 00:00:00
+95,2024-02-25 00:00:00,26,Camila Sanchez,camila.sanchez@mail.com,qr,12,Té Negro 20 saquitos,1,570,570,Limpieza,Alimentos,Alta Gracia,2023-01-26 00:00:00
+96,2024-02-23 00:00:00,83,Franco Gomez,franco.gomez@mail.com,tarjeta,81,Aceitunas Verdes 200g,3,2520,7560,Alimentos,Alimentos,Rio Cuarto,2023-03-24 00:00:00
+96,2024-02-23 00:00:00,83,Franco Gomez,franco.gomez@mail.com,tarjeta,68,Vino Blanco 750ml,1,2684,2684,Limpieza,Alimentos,Rio Cuarto,2023-03-24 00:00:00
+96,2024-02-23 00:00:00,83,Franco Gomez,franco.gomez@mail.com,tarjeta,11,Café Molido 250g,2,2053,4106,Alimentos,Alimentos,Rio Cuarto,2023-03-24 00:00:00
+96,2024-02-23 00:00:00,83,Franco Gomez,franco.gomez@mail.com,tarjeta,50,Azúcar 1kg,3,727,2181,Limpieza,Alimentos,Rio Cuarto,2023-03-24 00:00:00
+97,2024-06-16 00:00:00,39,Santiago Diaz,santiago.diaz@mail.com,efectivo,59,Chicle Menta,5,3612,18060,Alimentos,Alimentos,Alta Gracia,2023-02-08 00:00:00
+97,2024-06-16 00:00:00,39,Santiago Diaz,santiago.diaz@mail.com,efectivo,36,Dulce de Leche 400g,1,2559,2559,Limpieza,Alimentos,Alta Gracia,2023-02-08 00:00:00
+97,2024-06-16 00:00:00,39,Santiago Diaz,santiago.diaz@mail.com,efectivo,4,Fanta Naranja 1.5L,3,2033,6099,Limpieza,Alimentos,Alta Gracia,2023-02-08 00:00:00
+98,2024-01-12 00:00:00,43,Lucas Perez,lucas.perez@mail.com,transferencia,28,Papas Fritas Clásicas 100g,4,936,3744,Limpieza,Alimentos,Mendiolaza,2023-02-12 00:00:00
+98,2024-01-12 00:00:00,43,Lucas Perez,lucas.perez@mail.com,transferencia,61,Miel Pura 250g,1,4982,4982,Alimentos,Alimentos,Mendiolaza,2023-02-12 00:00:00
+98,2024-01-12 00:00:00,43,Lucas Perez,lucas.perez@mail.com,transferencia,29,Papas Fritas Onduladas 100g,1,1868,1868,Alimentos,Alimentos,Mendiolaza,2023-02-12 00:00:00
+98,2024-01-12 00:00:00,43,Lucas Perez,lucas.perez@mail.com,transferencia,83,Queso Untable 190g,3,1830,5490,Alimentos,Alimentos,Mendiolaza,2023-02-12 00:00:00
+99,2024-03-13 00:00:00,51,Agustina Gomez,agustina.gomez@mail.com,transferencia,40,Helado Chocolate 1L,5,1215,6075,Limpieza,Alimentos,Rio Cuarto,2023-02-20 00:00:00
+100,2024-06-08 00:00:00,69,Felipe Flores,felipe.flores@mail.com,qr,13,Té Verde 20 saquitos,3,2383,7149,Alimentos,Alimentos,Rio Cuarto,2023-03-10 00:00:00
+100,2024-06-08 00:00:00,69,Felipe Flores,felipe.flores@mail.com,qr,18,Queso Rallado 150g,4,3444,13776,Limpieza,Alimentos,Rio Cuarto,2023-03-10 00:00:00
+100,2024-06-08 00:00:00,69,Felipe Flores,felipe.flores@mail.com,qr,58,Caramelos Masticables,2,4752,9504,Limpieza,Alimentos,Rio Cuarto,2023-03-10 00:00:00
+100,2024-06-08 00:00:00,69,Felipe Flores,felipe.flores@mail.com,qr,57,Servilletas x100,1,4520,4520,Alimentos,Limpieza,Rio Cuarto,2023-03-10 00:00:00
+100,2024-06-08 00:00:00,69,Felipe Flores,felipe.flores@mail.com,qr,9,Yerba Mate Suave 1kg,4,3878,15512,Alimentos,Alimentos,Rio Cuarto,2023-03-10 00:00:00
+101,2024-03-28 00:00:00,72,Camila Rodriguez,camila.rodriguez@mail.com,efectivo,34,Turrón 50g,4,503,2012,Limpieza,Alimentos,Cordoba,2023-03-13 00:00:00
+102,2024-03-29 00:00:00,18,Ivana Torres,ivana.torres@mail.com,efectivo,78,Verduras Congeladas Mix,3,4289,12867,Limpieza,Alimentos,Carlos Paz,2023-01-18 00:00:00
+102,2024-03-29 00:00:00,18,Ivana Torres,ivana.torres@mail.com,efectivo,36,Dulce de Leche 400g,3,2559,7677,Limpieza,Alimentos,Carlos Paz,2023-01-18 00:00:00
+103,2024-03-11 00:00:00,39,Santiago Diaz,santiago.diaz@mail.com,efectivo,79,Hamburguesas Congeladas x4,5,2420,12100,Alimentos,Alimentos,Alta Gracia,2023-02-08 00:00:00
+103,2024-03-11 00:00:00,39,Santiago Diaz,santiago.diaz@mail.com,efectivo,43,Salsa de Tomate 500g,5,887,4435,Alimentos,Alimentos,Alta Gracia,2023-02-08 00:00:00
+103,2024-03-11 00:00:00,39,Santiago Diaz,santiago.diaz@mail.com,efectivo,34,Turrón 50g,1,503,503,Limpieza,Alimentos,Alta Gracia,2023-02-08 00:00:00
+103,2024-03-11 00:00:00,39,Santiago Diaz,santiago.diaz@mail.com,efectivo,70,Fernet 750ml,1,4061,4061,Limpieza,Alimentos,Alta Gracia,2023-02-08 00:00:00
+104,2024-06-17 00:00:00,86,Diego Torres,diego.torres@mail.com,qr,95,Mascarilla Capilar,2,1581,3162,Alimentos,Limpieza,Cordoba,2023-03-27 00:00:00
+104,2024-06-17 00:00:00,86,Diego Torres,diego.torres@mail.com,qr,68,Vino Blanco 750ml,3,2684,8052,Limpieza,Alimentos,Cordoba,2023-03-27 00:00:00
+104,2024-06-17 00:00:00,86,Diego Torres,diego.torres@mail.com,qr,68,Vino Blanco 750ml,5,2684,13420,Limpieza,Alimentos,Cordoba,2023-03-27 00:00:00
+105,2024-02-06 00:00:00,1,Mariana Lopez,mariana.lopez@mail.com,transferencia,13,Té Verde 20 saquitos,2,2383,4766,Alimentos,Alimentos,Carlos Paz,2023-01-01 00:00:00
+105,2024-02-06 00:00:00,1,Mariana Lopez,mariana.lopez@mail.com,transferencia,4,Fanta Naranja 1.5L,4,2033,8132,Limpieza,Alimentos,Carlos Paz,2023-01-01 00:00:00
+105,2024-02-06 00:00:00,1,Mariana Lopez,mariana.lopez@mail.com,transferencia,58,Caramelos Masticables,2,4752,9504,Limpieza,Alimentos,Carlos Paz,2023-01-01 00:00:00
+105,2024-02-06 00:00:00,1,Mariana Lopez,mariana.lopez@mail.com,transferencia,82,Aceitunas Negras 200g,4,2394,9576,Limpieza,Alimentos,Carlos Paz,2023-01-01 00:00:00
+105,2024-02-06 00:00:00,1,Mariana Lopez,mariana.lopez@mail.com,transferencia,43,Salsa de Tomate 500g,5,887,4435,Alimentos,Alimentos,Carlos Paz,2023-01-01 00:00:00
+106,2024-03-24 00:00:00,82,Lucas Lopez,lucas.lopez@mail.com,transferencia,88,Caldo Concentrado Carne,3,2570,7710,Limpieza,Alimentos,Alta Gracia,2023-03-23 00:00:00
+107,2024-05-21 00:00:00,14,Gael Martinez,gael.martinez@mail.com,efectivo,7,Jugo de Manzana 1L,4,3269,13076,Alimentos,Alimentos,Carlos Paz,2023-01-14 00:00:00
+107,2024-05-21 00:00:00,14,Gael Martinez,gael.martinez@mail.com,efectivo,11,Café Molido 250g,2,2053,4106,Alimentos,Alimentos,Carlos Paz,2023-01-14 00:00:00
+107,2024-05-21 00:00:00,14,Gael Martinez,gael.martinez@mail.com,efectivo,12,Té Negro 20 saquitos,4,570,2280,Limpieza,Alimentos,Carlos Paz,2023-01-14 00:00:00
+107,2024-05-21 00:00:00,14,Gael Martinez,gael.martinez@mail.com,efectivo,5,Agua Mineral 500ml,4,4777,19108,Alimentos,Alimentos,Carlos Paz,2023-01-14 00:00:00
+108,2024-03-25 00:00:00,9,Yamila Molina,yamila.molina@mail.com,tarjeta,90,Toallas Húmedas x50,4,2902,11608,Limpieza,Limpieza,Carlos Paz,2023-01-09 00:00:00
+109,2024-06-04 00:00:00,64,Julian Alvarez,julian.alvarez@mail.com,transferencia,18,Queso Rallado 150g,1,3444,3444,Limpieza,Alimentos,Villa Maria,2023-03-05 00:00:00
+109,2024-06-04 00:00:00,64,Julian Alvarez,julian.alvarez@mail.com,transferencia,74,Whisky 750ml,1,2953,2953,Limpieza,Alimentos,Villa Maria,2023-03-05 00:00:00
+109,2024-06-04 00:00:00,64,Julian Alvarez,julian.alvarez@mail.com,transferencia,20,Pan Lactal Blanco,2,1571,3142,Limpieza,Alimentos,Villa Maria,2023-03-05 00:00:00
+109,2024-06-04 00:00:00,64,Julian Alvarez,julian.alvarez@mail.com,transferencia,44,Arroz Largo Fino 1kg,5,2979,14895,Limpieza,Alimentos,Villa Maria,2023-03-05 00:00:00
+110,2024-05-19 00:00:00,92,Mariana Rodriguez,mariana.rodriguez@mail.com,efectivo,6,Jugo de Naranja 1L,1,4170,4170,Limpieza,Alimentos,Alta Gracia,2023-04-02 00:00:00
+110,2024-05-19 00:00:00,92,Mariana Rodriguez,mariana.rodriguez@mail.com,efectivo,59,Chicle Menta,3,3612,10836,Alimentos,Alimentos,Alta Gracia,2023-04-02 00:00:00
+110,2024-05-19 00:00:00,92,Mariana Rodriguez,mariana.rodriguez@mail.com,efectivo,6,Jugo de Naranja 1L,5,4170,20850,Limpieza,Alimentos,Alta Gracia,2023-04-02 00:00:00
+111,2024-02-12 00:00:00,48,Rocio Alvarez,rocio.alvarez@mail.com,efectivo,97,Limpiavidrios 500ml,4,872,3488,Alimentos,Limpieza,Cordoba,2023-02-17 00:00:00
+111,2024-02-12 00:00:00,48,Rocio Alvarez,rocio.alvarez@mail.com,efectivo,93,Cepillo de Dientes,3,2142,6426,Alimentos,Limpieza,Cordoba,2023-02-17 00:00:00
+111,2024-02-12 00:00:00,48,Rocio Alvarez,rocio.alvarez@mail.com,efectivo,20,Pan Lactal Blanco,2,1571,3142,Limpieza,Alimentos,Cordoba,2023-02-17 00:00:00
+111,2024-02-12 00:00:00,48,Rocio Alvarez,rocio.alvarez@mail.com,efectivo,23,Bizcochos Salados,4,2380,9520,Alimentos,Alimentos,Cordoba,2023-02-17 00:00:00
+112,2024-01-19 00:00:00,28,Rocio Silva,rocio.silva@mail.com,tarjeta,55,Shampoo 400ml,1,1407,1407,Alimentos,Limpieza,Cordoba,2023-01-28 00:00:00
+112,2024-01-19 00:00:00,28,Rocio Silva,rocio.silva@mail.com,tarjeta,21,Pan Lactal Integral,4,272,1088,Alimentos,Alimentos,Cordoba,2023-01-28 00:00:00
+112,2024-01-19 00:00:00,28,Rocio Silva,rocio.silva@mail.com,tarjeta,43,Salsa de Tomate 500g,5,887,4435,Alimentos,Alimentos,Cordoba,2023-01-28 00:00:00
+112,2024-01-19 00:00:00,28,Rocio Silva,rocio.silva@mail.com,tarjeta,13,Té Verde 20 saquitos,2,2383,4766,Alimentos,Alimentos,Cordoba,2023-01-28 00:00:00
+112,2024-01-19 00:00:00,28,Rocio Silva,rocio.silva@mail.com,tarjeta,59,Chicle Menta,1,3612,3612,Alimentos,Alimentos,Cordoba,2023-01-28 00:00:00
+113,2024-03-08 00:00:00,98,Camila Castro,camila.castro@mail.com,transferencia,53,Lavandina 1L,2,1664,3328,Alimentos,Limpieza,Cordoba,2023-04-08 00:00:00
+113,2024-03-08 00:00:00,98,Camila Castro,camila.castro@mail.com,transferencia,92,Crema Dental 90g,3,2512,7536,Limpieza,Limpieza,Cordoba,2023-04-08 00:00:00
+114,2024-05-05 00:00:00,16,Felipe Alvarez,felipe.alvarez@mail.com,qr,8,Energética Nitro 500ml,1,4218,4218,Limpieza,Alimentos,Rio Cuarto,2023-01-16 00:00:00
+114,2024-05-05 00:00:00,16,Felipe Alvarez,felipe.alvarez@mail.com,qr,84,Queso Azul 150g,1,1645,1645,Limpieza,Alimentos,Rio Cuarto,2023-01-16 00:00:00
+114,2024-05-05 00:00:00,16,Felipe Alvarez,felipe.alvarez@mail.com,qr,10,Yerba Mate Intensa 1kg,1,4883,4883,Limpieza,Alimentos,Rio Cuarto,2023-01-16 00:00:00
+114,2024-05-05 00:00:00,16,Felipe Alvarez,felipe.alvarez@mail.com,qr,55,Shampoo 400ml,5,1407,7035,Alimentos,Limpieza,Rio Cuarto,2023-01-16 00:00:00
+114,2024-05-05 00:00:00,16,Felipe Alvarez,felipe.alvarez@mail.com,qr,92,Crema Dental 90g,4,2512,10048,Limpieza,Limpieza,Rio Cuarto,2023-01-16 00:00:00
+115,2024-02-16 00:00:00,3,Hernan Martinez,hernan.martinez@mail.com,transferencia,17,Queso Cremoso 500g,4,4834,19336,Alimentos,Alimentos,Rio Cuarto,2023-01-03 00:00:00
+115,2024-02-16 00:00:00,3,Hernan Martinez,hernan.martinez@mail.com,transferencia,97,Limpiavidrios 500ml,5,872,4360,Alimentos,Limpieza,Rio Cuarto,2023-01-03 00:00:00
+115,2024-02-16 00:00:00,3,Hernan Martinez,hernan.martinez@mail.com,transferencia,95,Mascarilla Capilar,4,1581,6324,Alimentos,Limpieza,Rio Cuarto,2023-01-03 00:00:00
+115,2024-02-16 00:00:00,3,Hernan Martinez,hernan.martinez@mail.com,transferencia,84,Queso Azul 150g,2,1645,3290,Limpieza,Alimentos,Rio Cuarto,2023-01-03 00:00:00
+116,2024-03-18 00:00:00,25,Karina Castro,karina.castro@mail.com,qr,65,Cerveza Rubia 1L,1,2423,2423,Alimentos,Alimentos,Rio Cuarto,2023-01-25 00:00:00
+116,2024-03-18 00:00:00,25,Karina Castro,karina.castro@mail.com,qr,35,Barrita de Cereal 30g,2,4430,8860,Alimentos,Alimentos,Rio Cuarto,2023-01-25 00:00:00
+116,2024-03-18 00:00:00,25,Karina Castro,karina.castro@mail.com,qr,42,Vinagre de Alcohol 500ml,4,1195,4780,Limpieza,Alimentos,Rio Cuarto,2023-01-25 00:00:00
+116,2024-03-18 00:00:00,25,Karina Castro,karina.castro@mail.com,qr,54,Jabón de Tocador,5,1592,7960,Limpieza,Limpieza,Rio Cuarto,2023-01-25 00:00:00
+116,2024-03-18 00:00:00,25,Karina Castro,karina.castro@mail.com,qr,90,Toallas Húmedas x50,4,2902,11608,Limpieza,Limpieza,Rio Cuarto,2023-01-25 00:00:00
+117,2024-03-14 00:00:00,72,Camila Rodriguez,camila.rodriguez@mail.com,tarjeta,67,Vino Tinto Malbec 750ml,4,4719,18876,Alimentos,Alimentos,Cordoba,2023-03-13 00:00:00
+117,2024-03-14 00:00:00,72,Camila Rodriguez,camila.rodriguez@mail.com,tarjeta,61,Miel Pura 250g,2,4982,9964,Alimentos,Alimentos,Cordoba,2023-03-13 00:00:00
+118,2024-02-09 00:00:00,84,Pablo Sanchez,pablo.sanchez@mail.com,efectivo,68,Vino Blanco 750ml,5,2684,13420,Limpieza,Alimentos,Cordoba,2023-03-25 00:00:00
+118,2024-02-09 00:00:00,84,Pablo Sanchez,pablo.sanchez@mail.com,efectivo,68,Vino Blanco 750ml,3,2684,8052,Limpieza,Alimentos,Cordoba,2023-03-25 00:00:00
+118,2024-02-09 00:00:00,84,Pablo Sanchez,pablo.sanchez@mail.com,efectivo,70,Fernet 750ml,2,4061,8122,Limpieza,Alimentos,Cordoba,2023-03-25 00:00:00
+118,2024-02-09 00:00:00,84,Pablo Sanchez,pablo.sanchez@mail.com,efectivo,93,Cepillo de Dientes,3,2142,6426,Alimentos,Limpieza,Cordoba,2023-03-25 00:00:00
+118,2024-02-09 00:00:00,84,Pablo Sanchez,pablo.sanchez@mail.com,efectivo,50,Azúcar 1kg,2,727,1454,Limpieza,Alimentos,Cordoba,2023-03-25 00:00:00
+119,2024-02-07 00:00:00,51,Agustina Gomez,agustina.gomez@mail.com,qr,45,Fideos Spaghetti 500g,5,745,3725,Alimentos,Alimentos,Rio Cuarto,2023-02-20 00:00:00
+120,2024-04-21 00:00:00,72,Camila Rodriguez,camila.rodriguez@mail.com,tarjeta,20,Pan Lactal Blanco,5,1571,7855,Limpieza,Alimentos,Cordoba,2023-03-13 00:00:00
