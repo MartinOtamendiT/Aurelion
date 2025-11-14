@@ -233,4 +233,4 @@ Además, el notebook fue adaptado para ser integrado y visualizado directamente 
 
 Puedes acceder a la aplicación de Streamlit desplegada en el siguiente enlace:
 
-`https://aurelion-team9.streamlit.app/`
+[https://aurelion-team9.streamlit.app/](https://aurelion-team9.streamlit.app/)

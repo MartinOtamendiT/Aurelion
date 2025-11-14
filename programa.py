@@ -131,7 +131,7 @@ def see_documentation():
     st.title("Documentación del Proyecto: Tienda Aurelion")
 
     # Leer el contenido del documentación.md
-    with open("documentación.md", "r", encoding='utf-8') as file:
+    with open("./README.md", "r", encoding='utf-8') as file:
         content = file.read()
     
     # Dividir el contenido en secciones (basado en los headers ##)
