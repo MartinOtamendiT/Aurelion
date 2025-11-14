@@ -23,7 +23,7 @@ options = {
     2: "Ver ventas",
     3: "Ver clientes",
     4: "Ver productos",
-    5: "Ver análisis exploratorio",
+    5: "Ver análisis exploratorio de datos",
     0: "Salir",
 }
 
@@ -400,23 +400,6 @@ def see_eda():
     """Función que muestra el análisis exploratorio de datos"""
     st.title("Análisis Exploratorio de Datos (EDA) de la tienda Aurelion")
     
-    # Introducción y objetivos
-    st.markdown("""
-    ## Objetivos del Análisis
-    Este análisis exploratorio de datos tiene como objetivo principal estudiar:
-    - Análisis de ventas por periodos (comparativas por mes, trimestre, año)
-    - Volumen total de ventas (número de transacciones, cantidad de productos vendidos)
-    - Total de ingresos o facturación
-    - Número de clientes únicos
-    - Ventas por ciudad
-    """)
-    
-    # Carga de datos
-    ventas = pd.read_excel("./data/ventas.xlsx")
-    productos = pd.read_excel("./data/productos_corregidos.xlsx")
-    clientes = pd.read_excel("./data/clientes.xlsx")
-    detalle_ventas = pd.read_excel("./data/detalle_ventas.xlsx")
-    
     with st.expander("ℹ️ Información sobre las fuentes de datos"):
         st.markdown("""
         Este análisis utiliza datos de cuatro fuentes principales:
@@ -457,9 +440,23 @@ def see_eda():
     if selected_section == "1. Definición del problema":
         st.header("1️⃣ Definición del problema")
         st.markdown("""
-            Objetivo: Análisis de ventas por periodos (comparativas por mes, trimestre, año), 
-            por volumen total de ventas (número de transacciones, cantidad de productos vendidos),
-            total de ingresos o facturación, número de clientes únicos, ventas por género.
+        ### Objetivo general.
+        * Analizar el comportamiento de las ventas, clientes y productos de la tienda Aurelion durante el período enero–junio 2024 para identificar patrones, impulsores de ingresos y oportunidades de mejora operativa, comercial y estratégica mediante técnicas de análisis descriptivo y bivariado.
+
+        ### Objetivos específicos.
+        1. Identificar los principales factores que influyen en el importe total de las ventas. Evaluar la relación entre precio unitario, cantidad por ítem y el valor final de cada transacción. Cuantificar cuánto aporta cada variable a los ingresos y detectar patrones de compra.
+
+        2. Analizar la sensibilidad del cliente ante variaciones de precio. Examinar la relación entre precio y cantidad comprada para determinar si existe elasticidad o comportamiento inelástico. Segmentar clientes según su comportamiento frente al precio.
+
+        3. Evaluar el desempeño de las categorías de productos y su aporte a los ingresos. Comparar ingresos, precios y volumen de ventas entre las categorías “Alimentos” y “Limpieza”. Identificar productos de alta rotación y su contribución al negocio.
+
+        4. Determinar las diferencias en ventas según la ubicación geográfica. Analizar el volumen de ventas y los ingresos generados por cada ciudad. Detectar oportunidades de crecimiento y optimización de inventario por zona.
+
+        5. Examinar los patrones de uso de los métodos de pago. Identificar los medios de pago más utilizados por categoría y por ciudad.
+        Evaluar si existen oportunidades para mejorar la eficiencia operativa o incentivar métodos digitales.
+
+        6. Analizar la evolución temporal de las ventas y detectar patrones estacionales.
+        Revisar tendencias mensuales en los ingresos y detectar picos, caídas y ciclos de demanda.
         """)
 
     elif selected_section == "2. Importación e inspección inicial de los datos":
@@ -479,6 +476,11 @@ def see_eda():
     detalle_ventas = pd.read_excel("./data/detalle_ventas.xlsx")
         """
         st.code(code_importation, language='python')
+        # Carga de datos
+        ventas = pd.read_excel("./data/ventas.xlsx")
+        productos = pd.read_excel("./data/productos_corregidos.xlsx")
+        clientes = pd.read_excel("./data/clientes.xlsx")
+        detalle_ventas = pd.read_excel("./data/detalle_ventas.xlsx")
 
         st.subheader("Inspección inicial de los datos")
         #--------------------------------------------------------------------------------------------------
@@ -838,7 +840,7 @@ def see_eda():
         st.dataframe(df_unified.describe(include='all'))
 
         st.markdown("""
-        Puede descargarse el DataFrame limpio y listo para análisis posteriores con el siguiente botón:
+        Puede descargarse el DataFrame limpio y listo en formato CSV para análisis posteriores con el siguiente botón:
         """)
         st.download_button(
             label="Descargar DataFrame limpio",
@@ -853,123 +855,448 @@ def see_eda():
         df_unified = pd.read_csv("./data/df_unified_clean.csv")
         st.header("5️⃣ Análisis univariado")
         st.markdown("""
-        Esta sección analiza el comportamiento de los productos en el mercado,
-        identificando los más populares y las categorías más exitosas.
+        Para esta etapa, dividiremos el análisis en 3 partes de acuerdo con el tipo de variable:
+        * Análisis de variables numéricas.
+        * Análisis de variables categóricas.
+        * Análisis de variables de fechas.
+        
+        Las variables de identificación únicas (id_venta, id_producto y id_cliente) no las 
+        tomaremos en cuenta para este análisis, dado que no son variables numéricas ni categóricas 
+        con significado analítico (solo sirven para identificar).
+        """)
+
+        # ----------------------------------------------------------------------
+        st.subheader("Análisis de variables numéricas")
+        # Grafiación de histogramas de variables numéricas.
+        for col in ["precio_unitario", "importe"]:
+            st.markdown(f"#### 📈 Variable: {col}")
+
+            # Estadísticas descriptivas
+            desc = df_unified[col].describe()
+            # Obtención de media y mediana.
+            mean, median = desc["mean"], desc["50%"]
+
+            # Histograma
+            fig, ax = plt.subplots(figsize=(6, 4))
+            sns.histplot(df_unified[col].dropna().unique(), kde=True, ax=ax)
+            ax.axvline(mean, color='r', linestyle='--', label='Media')
+            ax.axvline(median, color='darkblue', linestyle='-', label='Mediana')
+            ax.set_title(f"Distribución de {col}")
+            plt.legend()
+            st.pyplot(fig)
+            st.write(f"Min: {desc['min']}, Max: {desc['max']}, Media: {desc['mean']}, Mediana: {desc['50%']}, Std: {desc['std']}\n")
+
+            # Interpretación de sesgo.
+            if mean > median:
+                interpretacion = "Distribución sesgada a la derecha (valores altos poco frecuentes)."
+            elif mean < median:
+                interpretacion = "Distribución sesgada a la izquierda (valores bajos poco frecuentes)."
+            else:
+                interpretacion = "Distribución aproximadamente simétrica."
+            st.write(f"{interpretacion}\n")
+        
+        st.markdown("""
+        Dados los gráficos anteriores, hemos notado lo siguiente:
+        * precio_unitario: Los precios de los productos parecen tener una distribución bimodal
+            (dos picos), uno alrededor de \$1500-\$2000 y otro cerca de \$4000.
+
+        * importe: El importe (calculado como cantidad * precio_unitario) muestra una ligera
+            asimetría positiva (cola derecha), lo que es normal. La mayoría de los importes por
+            ítem están por debajo de \$10,000, aunque algunos llegan hasta casi \$25,000.
+        """)
+
+        st.markdown("""
+        Dado que la columna "cantidad" solo tiene 5 valores posibles, se ha tomado la decisión 
+        de realizar un gráfico de barras para su análisis.
+        """)
+        sns.barplot(x=df_unified["cantidad"].value_counts().index, y=df_unified["cantidad"].value_counts().values)
+        plt.ylabel("Frecuencia")
+        plt.xlabel("Cantidad")
+        plt.title("Gráfico de barras de la cantidad de productos por venta")
+        st.pyplot(plt)
+        st.write("""
+        Se puede observar que los clientes suelen llevar entre 2 y 4 productos por ítem de venta, 
+        siendo 2 la cantidad más frecuente.
+        """)
+        # ----------------------------------------------------------------------
+        st.subheader("Análisis de variables categóricas")
+
+        st.markdown("""Realizaremos el análisis de las columnas de \"categoria\", \"medio_pago\" 
+        y \"ciudad\" para todos sus valores posibles.
+        """)
+        for col in ["categoria", "medio_pago", "ciudad"]:
+            fig, ax = plt.subplots(figsize=(6, 4))
+            sns.barplot(x=df_unified[col].value_counts().index, y=df_unified[col].value_counts().values)
+            plt.ylabel("Frecuencia")
+            plt.xlabel(col.capitalize())
+            plt.title(f"Gráfico de barras de la variable {col}")
+            st.pyplot(plt)
+        st.markdown("""
+        Dados los gráficos anteriores hemos notado lo siguiente:
+        * categoria: Existe un claro dominio de la categoría "Alimentos", que representa 286 
+                    de las 343 ventas de ítems, frente a 57 de "Limpieza".
+        * medio_pago: El medio de pago más utilizado es el "efectivo" (111 transacciones), 
+                    seguido de cerca por "qr" (91). Los valores de "transferencia" (72) y "tarjeta" 
+                    (69) son menos comunes.
+        * ciudad: Las ventas están más concentradas en "Rio Cuarto" (104 ventas), 
+                    con una presencia significativa en "Alta Gracia" (65) y "Cordoba" (65).
+        """)
+
+        st.markdown("""
+        Dada la alta cantidad de valores que pueden tener las columnas de nombre_cliente 
+                    y nombre_producto, tomaremos solo el top 5 de cada una y el resto lo 
+                    clasificaremos como "Otros".
+        """)
+        for col in ["nombre_cliente", "nombre_producto"]:
+            # Obtiene el top 5 de valores más frecuentes.
+            top = df_unified[col].value_counts().head(5)
+            # Agrupa los demás valores como "Otros".
+            grouped_values = df_unified[col].apply(lambda x: x if x in top.index else 'Otros')
+            
+            fig, ax = plt.subplots(figsize=(6, 4))
+            colors = sns.color_palette('mako') 
+            plt.pie(grouped_values.value_counts().values, labels=grouped_values.value_counts().index, colors=colors, autopct='%.0f%%', counterclock=False)
+            plt.title(f"Gráfico de pastel de la variable {col}")
+            st.pyplot(plt)
+        st.markdown("""
+        Dados los gráficos anteriores hemos notado lo siguiente:
+        * nombre_cliente: "Agustina Flores" es la cliente con más compras, impactando en 
+                    un 4% de las ventas. Le sigue "Olivia Gómez" con el mismo porcentaje, 
+                    mientras que "Diego Diaz", "Bruno Diaz" y "Camila Ruiz" han empatado con 
+                    un 3% de las ventas.
+        * nombre_producto: El producto más vendido es el "Queso Rallado 150g" con un 3%, 
+                    seguido por un empate de varios productos como "Salsa de Tomate", "Desodorante", 
+                    "Ron" y "Lavandina" con un 2% en cada caso.
+        """)
+
+        # ----------------------------------------------------------------------
+        st.subheader("Análisis de variables de fechas")
+
+        st.markdown("""
+        Realizaremos gráficos de líneas para analizar el comportamiento de las variables de fecha.
+        """)
+        for col in ["fecha_venta", "fecha_alta_cliente"]:
+            st.markdown(f"#### 📈 Variable: {col}")
+            df_fecha = pd.to_datetime(df_unified[col].dropna())
+            if df_fecha.empty:
+                print(f"⚠️ No hay datos válidos de fecha en {col}.\n")
+                continue
+
+            df_mes = df_fecha.dt.to_period("M").value_counts().sort_index()
+            st.write(f"Fechas válidas: {len(df_fecha)} registros.")
+
+            # Línea de tiempo mensual
+            fig, ax = plt.subplots(figsize=(6, 4))
+            df_mes.plot(ax=ax)
+            ax.set_title(f"Evolución temporal de {col}")
+            ax.set_xlabel("Mes")
+            ax.set_ylabel("Frecuencia")
+            st.pyplot(fig)
+        st.markdown("""
+        Dados los gráficos anteriores hemos notado lo siguiente:
+        * fecha_venta: Las ventas en el conjunto de datos cubren desde el 2 de enero de 2024 
+                    hasta el 28 de junio de 2024. El gráfico muestra una alta cantidad de ventas 
+                    en Enero y Mayo, donde en este último se registra el máximo de ventas. 
+                    Por otro lado, se registra en Abril una gran caída de las ventas.
+
+        * fecha_alta_cliente: Los clientes en este conjunto de datos fueron dados de alta 
+                    entre el 1 de enero de 2023 y el 10 de abril de 2023. Se nota que el máximo 
+                    de registros realizados fue en Enero y conforme avanzó el año 2023 la cantidad 
+                    de registros disminuyó progresivamente.
         """)
         
         
     elif selected_section == "6. Análisis bivariado":
         df_unified = pd.read_csv("./data/df_unified_clean.csv")
-        st.header("6️⃣ Análisis bivariado (asociaciones y correlaciones)")
-        
-        # Correlación entre variables numéricas
-        numeric_cols = ['cantidad', 'precio_unitario', 'importe']
-        corr_matrix = df_unified[numeric_cols].corr()
-        
-        st.subheader("📊 Mapa de Calor de Correlación")
-        fig, ax = plt.subplots(figsize=(8, 6))
-        sns.heatmap(corr_matrix, annot=True, fmt='.2f', cmap='viridis',
-                   cbar=True, annot_kws={"size": 12})
-        plt.title('Mapa de Calor de Correlación\n(Numérico vs. Numérico)', fontsize=16)
-        plt.xticks(rotation=45, ha='right', fontsize=10)
-        plt.yticks(rotation=0, fontsize=10)
-        st.pyplot(fig)
-        plt.close()
+        st.header("6️⃣ Análisis bivariado")
+
+        st.markdown("""Empezaremos realizando la matriz de correlación de 
+                    las variables numéricas. Para ello, primero haremos un filtro de estod tipos.""")
+        st.code("""df_numeric = df_unified.select_dtypes(include=["int64", "float64"])""", language="python")
+        df_numeric = df_unified.select_dtypes(include=["int64", "float64"])
+
+        st.markdown("""Procedemos a calcular la matriz de correlación.""")
+        corr_matrix = df_numeric.corr(method='pearson')
+        st.write("📊 MATRIZ DE CORRELACIÓN (coeficientes de Pearson):\n")
+        st.write(corr_matrix.round(3))
+
+        st.markdown("""Para poder visualizar mejor los valores obtenidos, 
+                    se procede a realizar un mapa de calor.""")
+        plt.figure(figsize=(10, 8))
+        sns.heatmap(corr_matrix, annot=True, cmap="YlGnBu", fmt=".2f", linewidths=0.5)
+        plt.title("Matriz de correlación entre variables - Tienda Aurrelion")
+        plt.tight_layout()
+        st.pyplot(plt)
+        plt.clf()
+
+        st.markdown("""Dada la naturaleza de los datos, se realiza el análisis 
+                    de la correlación entre las variables de "cantidad", 
+                    "precio_unitario" e "importe".
+        """)
+        numeric_cols = ['cantidad', 'precio_unitario', 'importe'] 
+        corr_matrix = df_unified[numeric_cols].corr() 
+        plt.figure(figsize=(8, 6)) 
+        sns.heatmap(corr_matrix, annot=True, fmt='.2f', cmap='viridis', cbar=True, 
+        annot_kws={"size": 12}) 
+        plt.title('Mapa de Calor de Correlación', fontsize=16) 
+        plt.xticks(rotation=45, ha='right', fontsize=10) 
+        plt.yticks(rotation=0, fontsize=10) 
+        plt.tight_layout() 
+        st.pyplot(plt)
+        plt.clf()
         
         st.markdown("""
-        * **Hallazgo Principal**: Existe una correlación positiva fuerte (r = 0.81) entre cantidad e importe.
-        * **Hallazgo Secundario**: La correlación entre precio_unitario e importe es moderada (r = 0.44).
-        * **Hallazgo Nulo**: No existe correlación (r = -0.06) entre el precio_unitario y la cantidad comprada.
+        Dado el gráfico anterior, se observan los siguientes hallazgos: 
+        * Existe una correlación positiva moderada ($r = 0.60$) entre cantidad e importe. 
+                    Esto confirma que el volumen de artículos por transacción es el principal 
+                    impulsor del ingreso total. 
+        * La correlación entre precio_unitario e importe es positiva moderada ($r = 0.68$). 
+                    Esto es consecuencia de la fórmula aplicada para calcular el importe 
+                    (importe = precio_unitario x cantidad).
+        * Existe una correlación negativa débil ($r = -0.07$) entre el precio_unitario y 
+                    la cantidad comprada. Los clientes compran más unidades de productos más baratos.
         """)
-        
-        # Ingresos por Categoría
-        st.subheader("📊 Ingresos Totales por Categoría")
-        ventas_por_categoria = df_unified.groupby('categoria')['importe'].sum().sort_values(ascending=False)
-        fig, ax = plt.subplots(figsize=(10, 7))
-        colors_cat = sns.color_palette('viridis', len(ventas_por_categoria))
-        ventas_por_categoria.plot(kind='bar', color=colors_cat)
-        plt.title('Ingresos Totales por Categoría', fontsize=16)
-        plt.ylabel('Ingresos Totales (Importe)', fontsize=12)
-        plt.xlabel('Categoría', fontsize=12)
-        plt.xticks(rotation=45, ha='right', fontsize=10)
-        plt.grid(axis='y', linestyle='--', alpha=0.7)
-        st.pyplot(fig)
-        plt.close()
-        
-        # Ingresos por Ciudad
-        st.subheader("📊 Ingresos Totales por Ciudad")
-        ventas_por_ciudad = df_unified.groupby('ciudad')['importe'].sum().sort_values(ascending=False)
-        fig, ax = plt.subplots(figsize=(10, 7))
-        colors_city = sns.color_palette('plasma', len(ventas_por_ciudad))
-        ventas_por_ciudad.plot(kind='bar', color=colors_city)
-        plt.title('Ingresos Totales por Ciudad', fontsize=16)
+
+        st.markdown("""Ahora se procederá a realizar un análisis del importe 
+                    (ingresos totales) de acuerdo a la categoría del producto.""")
+        ventas_por_categoria = df_unified.groupby('categoria')['importe'].sum().sort_values(ascending=False) 
+        plt.figure(figsize=(10, 7)) 
+        colors_cat = sns.color_palette('viridis', len(ventas_por_categoria)) 
+        ventas_por_categoria.plot(kind='bar', color=colors_cat) 
+        plt.title('Ingresos Totales por Categoría', fontsize=16) 
+        plt.ylabel('Ingresos Totales (Importe)', fontsize=12) 
+        plt.xlabel('Categoría', fontsize=12) 
+        plt.xticks(rotation=45, ha='right', fontsize=10) 
+        plt.grid(axis='y', linestyle='--', alpha=0.7) 
+        plt.tight_layout() 
+        st.pyplot(plt)
+        plt.clf()
+        st.markdown("""
+        Se observa el siguiente hallazgo:
+        * La categoría "Alimentos" es la que genera, con diferencia, el mayor volumen de 
+                    ingresos totales para el negocio. Esto sugiere que se tiene una oportunidad 
+                    de diversificación para productos de "Limpieza" con el objetivo de incrementar 
+                    los ingresos de esta categoría.
+        """)
+
+        st.markdown("""Ahora se procederá a realizar un análisis de los ingresos totales por ciudad.""")
+        ventas_por_ciudad = df_unified.groupby('ciudad')['importe'].sum().sort_values(ascending=False) 
+        plt.figure(figsize=(10, 7)) 
+        colors_city = sns.color_palette('plasma', len(ventas_por_ciudad)) 
+        ventas_por_ciudad.plot(kind='bar', color=colors_city) 
+        plt.title('Ingresos Totales por Ciudad\n(Categórico vs. Numérico)', fontsize=16) 
+        plt.ylabel('Ingresos Totales (Importe)', fontsize=12) 
+        plt.xlabel('Ciudad', fontsize=12) 
+        plt.xticks(rotation=45, ha='right', fontsize=10) 
+        plt.grid(axis='y', linestyle='--', alpha=0.7) 
+        plt.tight_layout() 
+        st.pyplot(plt)
+        plt.clf()
+        st.markdown("""
+        De acuerdo a la información presentada en la base de datos, se observa que todas 
+                    las ciudades corresponden a distintas sucursales de la tienda Aurelion 
+                    en Argentina. De acuerdo con el gráfico, se tiene que:
+        * "Rio Cuarto" es la ciudad que reporta el mayor volumen de ingresos totales. 
+        * "Cordoba" y "Altagracia" muestran niveles de ingresos muy similares entre sí, 
+                    mientras que "Mendiolaza" es la de menor rendimiento. 
+
+        Para continuar con este análisis por ciudad, se procederá a realizar un gráfico 
+                    que tomará en cuenta los medios de pago utilizados.
+        """)
+
+        # Crear tabla de contingencia: Ciudad vs Medio de Pago (suma del importe)
+        tabla_ciudad_pago = pd.crosstab(df_unified['ciudad'], df_unified['medio_pago'],
+                                        values=df_unified['importe'], aggfunc='sum').fillna(0)
+
+        # Ordenar por total de ingresos en cada ciudad (descendente)
+        tabla_ciudad_pago = tabla_ciudad_pago.loc[tabla_ciudad_pago.sum(axis=1).sort_values(ascending=False).index]
+
+        # Gráfico de barras apiladas
+        plt.figure(figsize=(12, 8))
+
+        tabla_ciudad_pago.plot(
+            kind='bar',
+            stacked=True,
+            figsize=(12, 8),
+            colormap='mako'  # mantiene coherencia con tu estilo
+        )
+
+        plt.title('Ingresos por Medio de Pago en cada Ciudad', fontsize=16)
         plt.ylabel('Ingresos Totales (Importe)', fontsize=12)
         plt.xlabel('Ciudad', fontsize=12)
         plt.xticks(rotation=45, ha='right', fontsize=10)
-        plt.grid(axis='y', linestyle='--', alpha=0.7)
-        st.pyplot(fig)
-        plt.close()
-        
-        # Distribución de Precios por Categoría
-        st.subheader("📊 Distribución de Precios por Categoría")
-        fig, ax = plt.subplots(figsize=(10, 7))
-        sns.boxplot(x='categoria', y='precio_unitario', data=df_unified, palette='viridis')
-        plt.title('Distribución de Precios Unitarios por Categoría', fontsize=16)
-        plt.ylabel('Precio Unitario', fontsize=12)
-        plt.xlabel('Categoría', fontsize=12)
-        plt.xticks(rotation=45, ha='right', fontsize=10)
-        plt.grid(axis='y', linestyle='--', alpha=0.7)
-        st.pyplot(fig)
-        plt.close()
-        
-        # Relación entre Categoría y Medio de Pago
-        st.subheader("📊 Relación entre Categoría y Medio de Pago")
+        plt.legend(title='Medio de Pago', fontsize=10)
+        plt.grid(axis='y', linestyle='--', alpha=0.5)
+        plt.tight_layout()
+        st.pyplot(plt)
+        plt.clf()
+        st.markdown("""
+        De acuerdo con el gráfico anterior, se observa los siguiente:
+        * El método de pago más común es "Efectivo" dado que a pesar de no ser el más frecuente, 
+                    está presente en todas las ciudades. 
+        * Adicionalmente, se observa que en las dos ciudades con mayores ingresos 
+                    (Río Cuarto y Alta Gracia) el método de pago más utilizado es el "QR". 
+                    Mientras que en las 2 ciudades con menor ingreso, la presencia del "QR" es 
+                    prácticamente nula.
+        * En todas las ciudades se observa que se utiliza "Transferencia" y "Tarjeta", 
+                    pero no con tanta regularidad como los demás métodos de pago.
+        * Esto coincide con el hallazgo encontrado en el análisis univariado de "método_pago", 
+                    en el cual el método de pago más utilizado es "Efectivo".
+
+        Para continuar con el análisis del medio de pago, se procederá a realizar un gráfico que 
+                    lo compara con la categoría del producto.
+        """)
+
+        # Crear tabla de contingencia
         contingency_table = pd.crosstab(df_unified['categoria'], df_unified['medio_pago'])
-        fig, ax = plt.subplots(figsize=(10, 7))
-        sns.heatmap(contingency_table, annot=True, fmt='d', cmap='YlGnBu',
-                   cbar=True, annot_kws={"size": 12})
-        plt.title('Frecuencia de Medio de Pago por Categoría', fontsize=16)
-        plt.ylabel('Categoría', fontsize=12)
-        plt.xlabel('Medio de Pago', fontsize=12)
-        plt.yticks(rotation=0, fontsize=10)
-        st.pyplot(fig)
-        plt.close()
+
+        plt.figure(figsize=(12, 8))
+
+        contingency_table.plot(
+            kind='bar',
+            stacked=True,
+            figsize=(12, 8),
+            colormap='mako' 
+        )
+
+        plt.title('Medio de Pago por Categoría', fontsize=16)
+        plt.ylabel('Frecuencia', fontsize=12)
+        plt.xlabel('Categoría', fontsize=12)
+        plt.xticks(rotation=0, fontsize=10)
+        plt.legend(title='Medio de Pago', fontsize=10)
+        plt.tight_layout()
+        st.pyplot(plt)
+        plt.clf()
+        st.markdown("""
+        De acuerdo con el gráfico anterior, se encontró lo siguiente. 
+        * El método de pago utilizado con mayor frecuencia es el "Efectivo", seguido del "QR". 
+                    Mientras que los métodos utilizados con menor frecuencia en menor proporción 
+                    son "Tarjeta" y "Transferencia".
+        * Se observa mucho mejor lo encontrado en el análisis univariado para "método_pago".
+        """)
+
+        st.markdown("""A continuación, se muestra la evolución de los ingresos totales por mes en el año 2024.""")
+        # Asegurarse de que fecha_venta es el índice para remuestrear
+        df_unified['fecha_venta'] = pd.to_datetime(df_unified['fecha_venta'])
+        df_time = df_unified.set_index('fecha_venta') 
+        # Remuestrear por mes ('M') y sumar los importes 
+        ventas_mensuales = df_time['importe'].resample('M').sum() 
+        plt.figure(figsize=(12, 7)) 
+        ventas_mensuales.plot(kind='line', marker='o', linestyle='-', color='dodgerblue') 
+        plt.title('Ingresos Totales por mes 2024', fontsize=16) 
+        plt.ylabel('Ingresos Totales (Importe)', fontsize=12) 
+        plt.xlabel('Mes', fontsize=12) 
+        plt.grid(True, linestyle='--', alpha=0.7) 
+        plt.tight_layout() 
+        st.pyplot(plt)
+        plt.clf()
+        st.markdown("""Se observa una clara tendencia en el aumento de los ingresos en el mes 
+                    de Enero del 2024 y una fuerte caída en Abril. Al siguiente mes (Mayo), 
+                    se observa una gran recuperación de los ingresos (y el pico más alto). 
+                    Esto indica una estacionalidad de los ingresos de acuerdo con una temporada 
+                    alta en los meses de Enero y Mayo, y una temporada baja en Abril.
+        """)
+        
+        st.markdown("""
+        Próximamente, se realizará una predicción con los datos del año 2024 para 
+        el año 2025, con la intención de comprender la estacionalidad de las ventas y 
+        posibles oportunidades para incrementar los ingresos.
+                    
+        Para ello, por el momento se generan datos aleatorios de Enero a Diciembre para 
+        el año 2025 para simular la existencia de datos de este año.
+        """)
+        ventas_2024 = pd.read_excel("./data/ventas.xlsx")
+        ventas_2025 = ventas_2024.copy()
+        num_filas = len(ventas_2024['fecha'])
+        # Definir el rango de fechas para 2025
+        fecha_inicio = pd.to_datetime('2025-01-01')
+        fecha_fin = pd.to_datetime('2025-12-31')
+        rango_dias = (fecha_fin - fecha_inicio).days
+
+        # Generar fechas aleatorias
+        # Creamos una serie de días aleatorios dentro del rango 2025
+        dias_aleatorios = np.random.randint(0, rango_dias + 1, size=num_filas)
+
+        # Sumamos los días aleatorios a la fecha de inicio para obtener las fechas finales
+        fechas_aleatorias_2025 = fecha_inicio + pd.to_timedelta(dias_aleatorios, unit='D')
+
+        # Reemplazar la columna 'Fecha' con las nuevas fechas aleatorias de 2025
+        ventas_2025['fecha'] = fechas_aleatorias_2025
+
+        # Mostrar el resultado (las primeras 5 filas)
+        st.write("\nDataFrame con fechas aleatorias de 2025 reemplazadas:")
+        st.write(ventas_2025.head())
+
+        # Convertir la columna 'fecha' a tipo datetime
+        ventas_2024["fecha"] = pd.to_datetime(ventas_2024["fecha"])
+        ventas_2025["fecha"] = pd.to_datetime(ventas_2025["fecha"])
+
+        # Extraer el mes de la fecha
+        ventas_2024["mes"] = ventas_2024["fecha"].dt.month
+        ventas_2025["mes"] = ventas_2025["fecha"].dt.month
+
+        # Agrupar por mes y contar ventas (o sumar montos si tienes una columna de totales)
+        ventas_2024_mes = ventas_2024.groupby("mes").size()
+        ventas_2025_mes = ventas_2025.groupby("mes").size()
+
+        # Alinear ambos años para asegurar que todos los meses estén presentes
+        meses = range(1, 13)
+        ventas_2024_mes = ventas_2024_mes.reindex(meses, fill_value=0)
+        ventas_2025_mes = ventas_2025_mes.reindex(meses, fill_value=0)
+
+        # Preparar datos para el gráfico
+        categorias = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 
+                    'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
+        ventas_2024 = ventas_2024_mes.values
+        ventas_2025 = ventas_2025_mes.values
+
+        x = np.arange(len(categorias))  # posiciones para cada categoría
+        width = 0.35  # ancho de cada barra
+
+        # Crear el gráfico
+        plt.figure(figsize=(10, 6))
+        plt.bar(x - width/2, ventas_2024, width=width, label='2024', color='darkcyan')
+        plt.bar(x + width/2, ventas_2025, width=width, label='2025', color='indigo')
+
+        # Personalizar
+        plt.title("Comparación de Ventas 2024 vs 2025")
+        plt.xlabel("Mes")
+        plt.ylabel("Número de Ventas")
+        plt.xticks(x, categorias)
+        plt.legend()
+        plt.grid(axis='y', linestyle='--', alpha=0.7)
+        plt.tight_layout()
+        st.pyplot(plt)
+
 
     elif selected_section == "7. Conclusiones":
         st.header("7️⃣ Conclusiones")
         
         st.markdown("""
-        El análisis bivariado revela varias tendencias importantes sobre el comportamiento 
-        de las ventas en la tienda Aurelion:
+        1. Impulsores Clave de Ingresos y Categorías.
+            * Ingresos (Importe): Los ingresos totales están impulsados por una combinación de la cantidad de productos comprados ($r = 0.60$) y el precio unitario de los mismos ($r = 0.68$).
+            * Dominio de Alimentos: La categoría "Alimentos" es el generador dominante de ingresos (286 ítems vendidos vs. 57 de "Limpieza"). Esto sugiere que "Alimentos" es el pilar del negocio, mientras que "Limpieza" representa una clara oportunidad de diversificación y crecimiento.
 
-        1. **Impulsores de Ingresos (Correlación)**
-           * El importe total de una venta está fuertemente influenciado tanto por el precio unitario (r = 0.68) 
-             como por la cantidad de artículos comprados (r = 0.60)
-           * Esto sugiere que tanto el precio de los artículos como el volumen de la cesta son factores clave 
-             para los ingresos
+        2. Comportamiento del Cliente y Sensibilidad al Precio.
+            * Sensibilidad al Precio: Se detecta una ligera sensibilidad al precio. El análisis de correlación ($r = -0.07$) indica que los clientes tienden a comprar más unidades de productos que tienen un precio unitario más bajo.
+            * Volumen de Compra: El patrón de compra más habitual es llevar 2 unidades por ítem de venta, aunque el rango común se sitúa entre 2 y 4 unidades.
+            * Clientes Principales: Aunque el análisis de clientes muestra una base diversificada, "Agustina Flores" y "Olivia Gómez" destacan ligeramente como las compradoras más frecuentes (ambas con un 4% del total de ítems).
+            
+        3. Perspectivas Geográficas y Métodos de Pago.
+            * Rendimiento por Ciudad: "Rio Cuarto" es la sucursal que genera mayores ingresos totales y registra la mayor cantidad de ventas (104). "Mendiolaza" es la de menor rendimiento.
+            * Patrón de Métodos de Pago: Este es uno de los hallazgos más significativos:
+                * A nivel general, el "Efectivo" es el método más usado (111 transacciones), seguido de cerca por el "QR" (91).
+                * Sin embargo, el "QR" es el método preferido en las dos ciudades con mayores ingresos (Río Cuarto y Alta Gracia).
+                * Por el contrario, el "QR" es prácticamente inexistente en las ciudades con menor rendimiento. Esto sugiere una correlación entre la adopción de pagos digitales (QR) y un mayor volumen de ingresos por sucursal.
 
-        2. **Comportamiento del Cliente (Elasticidad)**
-           * No existe correlación significativa (r = -0.07) entre el precio_unitario y la cantidad
-           * Esto indica que los clientes de Aurelion no compran menos unidades de un producto simplemente 
-             porque este sea más caro
+        4. Estacionalidad y Tendencias.
+            * Estacionalidad de Ventas: El análisis de fecha_venta (Ene-Jun 2024) revela una fuerte estacionalidad. Se observan picos de ventas e ingresos en enero y mayo, con una caída notable en abril.
+            * Adquisición de Clientes: La adquisición de los clientes analizados (fecha_alta_cliente) tuvo su auge en enero de 2023 y disminuyó progresivamente a lo largo de ese año.
 
-        3. **Rendimiento por Categoría y Ciudad**
-           * **Categoría**: "Alimentos" es, con diferencia, la que genera el mayor volumen de ingresos
-           * **Ubicación**: "Rio Cuarto" es la ciudad que reporta el mayor volumen de ingresos, seguida 
-             de "Cordoba" y "Carlos Paz"
-
-        4. **Distribución de Precios vs. Métodos de Pago**
-           * **Precios**: La categoría "Perfumería" tiene la mediana de precio más alta y la mayor dispersión
-           * **Método de Pago**: El método preferido varía según la categoría y el rango de precios
-
-        5. **Estacionalidad de las Ventas**
-           * Se observa una clara tendencia ascendente desde principios de año
-           * El pico de ventas se alcanza en junio
-           * Hay una caída notable en julio, sugiriendo un patrón estacional
+        5. Análisis de Productos.
+            * Producto Estrella: El producto individual más vendido es el "Queso Rallado 150g" (3% de los ítems).
+            * Distribución de Precios: Los precios de los productos no son uniformes; muestran una distribución bimodal, sugiriendo dos grupos principales de productos (uno de menor precio, $1500-$2000, y uno de mayor precio, $4000$).
         """)
-        
-        
-
     st.markdown("---")
     # Botón para regresar al menú principal
     st.button(

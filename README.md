@@ -218,3 +218,19 @@ Para detener la aplicación, simplemente vuelve a la terminal donde se está eje
     ```bash
     Cmd + C
     ```
+
+---
+
+## Análisis exploratorio en Jupyter Notebook
+
+El archivo `analisis_notebook.ipynb` contiene un análisis exploratorio de los datos utilizados en el proyecto. Este notebook permite realizar visualizaciones, estadísticas descriptivas y pruebas rápidas sobre los datos antes de integrarlos en la aplicación principal. Es útil para validar la calidad de los datos, explorar tendencias y probar hipótesis de manera interactiva.
+
+Además, el notebook fue adaptado para ser integrado y visualizado directamente desde la aplicación de Streamlit, facilitando así la experiencia del usuario y permitiendo acceder tanto a la exploración como a la visualización interactiva desde un solo lugar.
+
+---
+
+## URL de despliegue
+
+Puedes acceder a la aplicación de Streamlit desplegada en el siguiente enlace:
+
+`https://aurelion-team9.streamlit.app/`
