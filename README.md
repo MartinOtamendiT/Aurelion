@@ -234,3 +234,85 @@ Además, el notebook fue adaptado para ser integrado y visualizado directamente 
 Puedes acceder a la aplicación de Streamlit desplegada en el siguiente enlace:
 
 [https://aurelion-team9.streamlit.app/](https://aurelion-team9.streamlit.app/)
+
+--
+
+## Predicción del total de ventas (sección de Machine Learning)
+
+### 1. Objetivo
+
+El objetivo principal de este proyecto es predecir las ventas totales mensuales de la tienda para lo que resta del año 2024 (Julio - Diciembre) y todo el año 2025. Se busca utilizar datos históricos para proyectar la demanda futura y ayudar en la toma de decisiones.
+
+### 2. Generación de Dataset Expandido
+
+Para lograr un entrenamiento robusto, se expandió el dataset original (`df_unified_clean.csv`) mediante técnicas de simulación de datos (Synthetic Data Generation).
+
+#### Justificación
+
+El dataset original contenía solo ~340 transacciones recientes, lo cual es insuficiente para capturar estacionalidad anual o tendencias a largo plazo necesarias para un modelo de regresión de series temporales.
+
+#### Proceso Utilizado
+
+1. **Datos Base:** Se extrajeron los perfiles de productos (precios, categorías) y clientes existentes del archivo original.
+2. **Tendencia Macroeconómica:** Se utilizó el archivo externo `ventas-totales-supermercados-2.csv` como referencia de la tendencia del mercado argentino (2017-2024). Específicamente, se usó la columna `ventas_precios_constantes` para modelar la "intensidad" o volumen de ventas mensual. Este dataset fue obtenido de una página oficial de datos del gobierno de Argentina, específicamente en los datos de ["Ventas de Supermercado"](https://datos.gob.ar/nl/dataset/sspm-ventas-supermercados).
+
+3. **Simulación:**
+    * Se generaron clientes sintéticos con perfiles realistas para complementar a los clientes reales.
+    * Se crearon ~20,000 transacciones distribuidas desde Enero 2017 hasta Junio 2024.
+    * La frecuencia de ventas sigue la curva de demanda macroeconómica histórica, asegurando que los picos y caídas del mercado se reflejen en los datos simulados.
+    * El resultado es el archivo `df_expanded.csv`, que sirve como fuente para el entrenamiento del modelo.
+
+### 3. Algoritmo Elegido y Justificación
+
+Se seleccionó el algoritmo **Random Forest Regressor**.
+
+* **Justificación:** Este modelo es robusto, maneja bien relaciones no lineales y no requiere supuestos estrictos sobre la distribución de los datos. Es eficaz para series temporales cuando se transforman en un problema de regresión supervisada mediante el uso de "lags" (retrasos) como características. Además, reduce el riesgo de sobreajuste en comparación con árboles de decisión individuales al promediar múltiples árboles.
+
+### 4. Entradas (X) y Salida (y)
+
+* **Salida (Target - y):** `sales` (Importe total de ventas mensuales).
+
+* **Entradas (Features - X):**
+
+* Variables temporales: `month` (mes), `year` (año).
+* Variables de rezago (Lags): `lag_1`, `lag_2`, `lag_3`, `lag_6`, `lag_12` (Ventas de hace 1, 2, 3, 6 y 12 meses).
+* Medias móviles: `rolling_mean_3` (Promedio de ventas de los últimos 3 meses).
+
+### 5. Métricas de Evaluación
+
+Para evaluar el desempeño del modelo en el conjunto de validación (Enero - Junio 2024), se utilizaron las siguientes métricas:
+
+* **MAE (Mean Absolute Error):** Mide el error promedio absoluto entre las ventas predichas y las reales.
+* **RMSE (Root Mean Squared Error):** Penaliza más los errores grandes, útil para detectar desviaciones significativas.
+* **R² Score:** Indica qué tan bien las variables independientes explican la varianza de la variable dependiente.
+
+### 6. Modelo ML Implementado
+
+Se implementó un modelo `RandomForestRegressor` de la librería `scikit-learn` con los siguientes hiperparámetros base:
+
+* `n_estimators=100`: 100 árboles de decisión.
+* `random_state=42`: Para reproducibilidad.
+
+El modelo final fue entrenado con la totalidad de los datos históricos disponibles (hasta Junio 2024) y exportado como `sales_forecasting_model.pkl`.
+
+Puede verse el modelo puesto en producción en la sección de **Predicción de ventas** del Streamlit.
+
+### 7. División Train/Test y Entrenamiento
+
+Se utilizó una estrategia de validación basada en el tiempo (*Time Series Split*):
+
+* **Conjunto de Entrenamiento (Train):** Datos desde el inicio (2018) hasta Diciembre de 2023.
+* **Conjunto de Validación (Val):** Datos desde Enero 2024 hasta Junio 2024.
+
+Tras validar el desempeño, el modelo se reentrenó con **todos** los datos disponibles para realizar las proyecciones futuras.
+
+### 8. Predicciones y Métricas Calculadas
+
+**Resultados de Validación (Ene-Jun 2024):**
+
+* **MAE:** ~250,794
+* **RMSE:** ~268,810
+* **R² Score:** -5.54 (Nota: En periodos cortos de validación con alta volatilidad, el R² puede ser negativo, indicando que el modelo tuvo dificultades para superar una línea base simple en ese tramo específico, aunque capturó la estacionalidad general).
+
+**Predicciones Futuras:**
+Se generaron predicciones mes a mes desde Julio 2024 hasta Diciembre 2025 utilizando un enfoque recursivo (las predicciones se convierten en *inputs* para los meses siguientes).

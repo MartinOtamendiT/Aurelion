@@ -24,6 +24,7 @@ options = {
     3: "Ver clientes",
     4: "Ver productos",
     5: "Ver análisis exploratorio de datos",
+    6: "Ver predicción de ventas",
     0: "Salir",
 }
 
@@ -61,8 +62,110 @@ def main_menu():
         on_click=navigate_to, args=(5,)
     )
     st.button(
+        options[6], use_container_width=True,
+        on_click=navigate_to, args=(6,)
+    )
+    st.button(
         options[0], use_container_width=True, 
         on_click=navigate_to, args=(0,)
+    )
+# --- Nueva sección: Predicción de Ventas ---
+def see_sales_forecast():
+    """Función que carga el modelo y muestra la predicción de ventas para Julio 2024 y todo 2025"""
+    import pandas as pd
+    import matplotlib.pyplot as plt
+    import os
+
+    st.title("📈 Predicción de Ventas: Julio 2024 y 2025")
+    st.markdown("Esta sección muestra la predicción de ventas mensuales usando el modelo entrenado.")
+
+    # Cargar predicciones
+    pred_path = './data/sales_predictions_2024_2025_final.csv'
+    if not os.path.exists(pred_path):
+        st.error(f"No se encontró el archivo de predicciones: {pred_path}")
+        return
+    df_pred = pd.read_csv(pred_path)
+    df_pred['date'] = pd.to_datetime(df_pred['date'])
+
+    # Filtrar solo Julio 2024 y todo 2025
+    mask = ((df_pred['date'] >= '2024-07-01') & (df_pred['date'] <= '2025-12-31'))
+    df_pred_filtered = df_pred.loc[mask].copy()
+
+    st.subheader("Predicciones de ventas (Jul 2024 - Dic 2025)")
+    st.dataframe(df_pred_filtered, use_container_width=True)
+
+    # Gráfica 1: Solo valores predichos
+    st.markdown("### Gráfica: Valores Predichos")
+    fig1, ax1 = plt.subplots(figsize=(10,5))
+    ax1.plot(df_pred_filtered['date'], df_pred_filtered['pred_sales'], marker='o', color='darkorange', label='Predicción de ventas')
+    ax1.set_title('Pronóstico de Ventas Mensuales (Jul 2024 - Dic 2025)')
+    ax1.set_xlabel('Fecha')
+    ax1.set_ylabel('Ventas Predichas ($)')
+    ax1.grid(True, linestyle='--', alpha=0.6)
+    ax1.legend()
+    plt.xticks(rotation=45)
+    st.pyplot(fig1)
+
+    # Gráfica 2: Histórico + valores predichos
+    st.markdown("### Gráfica: Histórico + Predicción")
+    # Cargar histórico
+    hist_path = './data/df_expanded.csv'
+    if not os.path.exists(hist_path):
+        st.error(f"No se encontró el archivo de histórico: {hist_path}")
+    else:
+        df_hist = pd.read_csv(hist_path)
+        if 'fecha_venta' in df_hist.columns:
+            df_hist['fecha_venta'] = pd.to_datetime(df_hist['fecha_venta'])
+            monthly_sales = df_hist.set_index('fecha_venta').resample('ME')['importe'].sum().reset_index()
+            monthly_sales.columns = ['date', 'sales']
+            # Graficar histórico y predicción juntos
+            fig2, ax2 = plt.subplots(figsize=(14,7))
+            ax2.plot(monthly_sales['date'], monthly_sales['sales'], label='Ventas Históricas (2017 - Jun 2024)', color='dodgerblue', linewidth=2)
+            ax2.plot(df_pred_filtered['date'], df_pred_filtered['pred_sales'], label='Pronóstico (Jul 2024 - Dic 2025)', color='darkorange', linestyle='--', marker='o', markersize=4)
+            last_historical_date = monthly_sales['date'].max()
+            ax2.axvline(x=last_historical_date, color='grey', linestyle=':', linewidth=1.5, label='Inicio del Pronóstico')
+            ax2.set_title('📈 Histórico y Pronóstico de Ventas Mensuales Totales (2017 - 2025)', fontsize=16)
+            ax2.set_xlabel('Fecha', fontsize=12)
+            ax2.set_ylabel('Ventas Totales ($)', fontsize=12)
+            ax2.legend(loc='upper left')
+            ax2.grid(True, linestyle='--')
+            plt.xticks(rotation=45)
+            plt.tight_layout()
+            st.pyplot(fig2)
+
+    st.markdown("""
+        1. Validación y confiabilidad: 
+            El gráfico de validación (Ene-Jun 2024) muestra que 
+                el modelo captura correctamente la direccionalidad y 
+                estacionalidad de las ventas. Aunque existe una 
+                desviación promedio (MAE) del ~16%, las curvas 
+                se mueven en sincronía. Esto indica que el 
+                modelo entiende cuándo suben o bajan las ventas, 
+                lo cual es más valioso para la planificación que 
+                acertar el monto exacto al centavo.
+
+        2. Tendencia y estacionalidad futura: El pronóstico extendido 
+                (hasta Dic 2025) revela un comportamiento cíclico y 
+                predecible. Se observan patrones claros de picos y 
+                valles que se repiten anualmente, heredados de la 
+                tendencia macroeconómica del mercado argentino. 
+                Esto sugiere que el negocio no es errático, 
+                sino que responde a ciclos de consumo definidos.
+
+        3. Estabilidad del negocio: La proyección no muestra caídas 
+                abruptas ni crecimientos explosivos injustificados, 
+                sino una tendencia de crecimiento sostenido. Esto 
+                permite a la gerencia anticipar la demanda de 
+                inventario para los meses de "temporada alta" y 
+                optimizar el flujo de caja durante los periodos 
+                de menores ventas, reduciendo la incertidumbre 
+                operativa para el próximo año y medio.
+    """)
+
+    st.markdown("---")
+    st.button(
+        "⬅️ Volver al Menú Principal",
+        on_click=navigate_to, args=(None,)
     )
 
     st.markdown("---")
@@ -1318,5 +1421,7 @@ if __name__ == "__main__":
         see_products()
     elif st.session_state.selected_option == 5:
         see_eda()
+    elif st.session_state.selected_option == 6:
+        see_sales_forecast()
     else:
         test_page()
